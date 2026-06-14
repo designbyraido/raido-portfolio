@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: theme('colors.void');
+    color: theme('colors.text-main');
+  }
+
+  /* Ensure no border radius globally as a strict override */
+  * {
+    border-radius: 0 !important;
+  }
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(16px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
