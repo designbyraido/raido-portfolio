@@ -576,9 +576,12 @@ export function DataIngestion({ uiVisible = true }) {
                         </div>
                     </div>
 
-                    {/* FIX: min-h-[68px] guarantees this container cannot squish past 2 tracks.
-                        Changed duration-700 to duration-1000 for smoothness. */}
-                    <div onScroll={showScrollbar} className={`flex flex-col gap-1 transition-all duration-1000 ease-in-out pr-1 overflow-y-auto custom-scrollbar flex-1 min-h-[68px] ${scrollbarVisible ? 'scrollbar-visible' : ''}`}>
+                    {/* FIX: CSS Mask visually fades the bottom to hint at more content. pb-6 ensures the last track clears the fade when scrolled down. */}
+                    <div 
+                        onScroll={showScrollbar} 
+                        className={`flex flex-col gap-1 transition-all duration-1000 ease-in-out pr-1 pb-6 overflow-y-auto custom-scrollbar flex-1 min-h-[68px] ${scrollbarVisible ? 'scrollbar-visible' : ''}`}
+                        style={{ maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)' }}
+                    >
                         {PRELOADED_TRACKS.map((track, idx) => {
                             const trackName = track.title;
                             const isActive = currentTrack === idx;

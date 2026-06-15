@@ -1022,7 +1022,7 @@ function ArchiveHUD() {
   const center = 48;
 
   return (
-    <div className={`absolute top-20 md:top-8 left-1/2 -translate-x-1/2 z-40 pointer-events-none transition-opacity duration-700 ease-in-out ${expandedProject !== null ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`absolute top-10 md:top-8 left-1/2 -translate-x-1/2 z-40 pointer-events-none transition-opacity duration-700 ease-in-out scale-[0.65] md:scale-100 origin-top ${expandedProject !== null ? 'opacity-0' : 'opacity-100'}`}>
       <svg width="96" height="96" viewBox="0 0 96 96" className="overflow-visible">
         {/* Central solid circle */}
         <circle cx={center} cy={center} r={18} fill={theme.breach} />
