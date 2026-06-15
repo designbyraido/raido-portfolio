@@ -848,10 +848,17 @@ function TerminalPanel({ title, children, flexClass = "shrink-0", footer = null 
 }
 
 function Navigation() {
+  const location = useLocation();
+  const isArchive = location.pathname === '/archive';
+
   return (
-    <nav className="mb-1 lg:mb-2 flex flex-col sm:flex-row gap-2 lg:gap-3 animate-crt-flicker relative z-50">
-      <NavLink to="/" className={({ isActive }) => `text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:w-auto ${isActive ? 'bg-infil text-[#090A0C] border-infil' : 'bg-[#090A0C] text-[#E0E0E0] border-[#E0E0E0] hover:border-infil hover:text-infil'}`}>Home // Telemetry</NavLink>
-      <NavLink to="/archive" className={({ isActive }) => `text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:w-auto ${isActive ? 'bg-breach text-[#090A0C] border-breach' : 'bg-[#090A0C] text-[#E0E0E0] border-[#E0E0E0] hover:border-breach hover:text-breach'}`}>Projects // Archive</NavLink>
+    <nav className="mb-1 lg:mb-2 flex flex-col sm:flex-row gap-2 lg:gap-3 animate-crt-flicker relative z-50 w-full">
+      {!isArchive ? (
+        <NavLink to="/archive" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Projects // Archive</NavLink>
+      ) : (
+        <NavLink to="/" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Home // Telemetry</NavLink>
+      )}
+      <a href="mailto:designbyraido@gmail.com" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Contact // Quotes</a>
     </nav>
   )
 }
@@ -935,7 +942,7 @@ function Home({ uiVisible, setUiVisible }) {
           <div className="absolute inset-0">
             <Canvas><ambientLight intensity={1.0} /><OrthographicCamera makeDefault position={[0, 0, 5]} zoom={80} /><TopologyGrid /></Canvas>
           </div>
-          <div className={`absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none transition-all duration-1000 ease-in-out ${uiVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}><div className="bg-[#090A0C] px-2 py-1 text-infil font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase border border-infil">[ SCANNING TOPOLOGY... ]</div></div>
+          <div className={`absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none transition-all duration-1000 ease-in-out ${uiVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}><div className="px-2 py-1 text-infil font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase">[ SCANNING TOPOLOGY... ]</div></div>
         </div>
       </section>
 
@@ -1110,7 +1117,7 @@ function Archive() {
         <ProjectExpandedView expandedProjectIndex={expandedProject} />
 
         <div className="absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none z-30 flex flex-col items-start">
-          <div className="bg-[#090A0C] px-2 py-1 text-breach font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase border border-breach">
+          <div className="px-2 py-1 text-breach font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase">
             [ ARCHIVE ACCESS ]
           </div>
         </div>
