@@ -299,9 +299,8 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
                             <p
                                 className={`text-sm md:text-base leading-relaxed text-[#f5f3ef] opacity-90 max-w-2xl font-sans transition-opacity duration-700 delay-[500ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                                 style={{ whiteSpace: 'pre-line' }}
-                            >
-                                {project.description}
-                            </p>
+                                dangerouslySetInnerHTML={{ __html: project.description }}
+                            />
                         </div>
 
                         {/* Desktop Logo Area */}
