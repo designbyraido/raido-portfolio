@@ -956,9 +956,9 @@ function Home({ uiVisible, setUiVisible }) {
 
           <TerminalPanel title="BIO" flexClass={`flex flex-col shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-75 opacity-100 translate-x-0' : 'delay-300 opacity-0 translate-x-8'}`}>
             <div className="flex flex-col gap-3 tracking-normal">
-              <p>I am a Costarrican Multidisciplinary Designer with over a decade of experience, holding Bachelor's and Master's degrees in Industrial Design.</p>
+              <p>I am a  Multidisciplinary Designer with over a decade of experience, holding Bachelor's and Master's degrees in Industrial Design.</p>
               <p>My expertise centers on branding, developed through hands-on practice, continuous education, and dedicated research. My skill set spans graphic design, 3D modeling & product visualization, motion design, sound design, music production, signage, interior implementations, and video editing.</p>
-              <p>I have collaborated with boutique studios and international clients. Since 2023 I have worked full-time freelance and currently serve as Art Director for OHM, Albany's electronic music and digital arts non-profit, where I lead branding and creative direction. Based in Albany, New York.</p>
+              <p>I have collaborated with boutique studios and international clients. Since 2023 I have worked full-time freelance and currently serve as Art Director for OHM, Albany's electronic music and digital arts non-profit, where I lead branding and creative direction. Originally from Costa Rica, now based in Albany, New York.</p>
             </div>
           </TerminalPanel>
 
