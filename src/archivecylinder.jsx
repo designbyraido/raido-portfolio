@@ -6,7 +6,9 @@ import { useMagiStore } from './store'
 import { PROJECTS_DATA } from './projectsData'
 
 export function ArchiveCylinder() {
-    const { theme, expandedProject, setExpandedProject } = useMagiStore()
+    const theme = useMagiStore(state => state.theme)
+    const expandedProject = useMagiStore(state => state.expandedProject)
+    const setExpandedProject = useMagiStore(state => state.setExpandedProject)
     const activeTheme = { infil: theme?.infil || '#FFB000', breach: theme?.breach || '#FF3333' }
 
     // FIX: Dynamically count the projects array so it scales perfectly when you add new projects

@@ -213,7 +213,10 @@ const ZoomableImage = ({ src, onClose }) => {
 };
 
 export function ProjectExpandedView({ expandedProjectIndex }) {
-    const { theme, setTheme, lightboxMedia, setLightboxMedia } = useMagiStore()
+    const theme = useMagiStore(state => state.theme)
+    const setTheme = useMagiStore(state => state.setTheme)
+    const lightboxMedia = useMagiStore(state => state.lightboxMedia)
+    const setLightboxMedia = useMagiStore(state => state.setLightboxMedia)
     const [isVisible, setIsVisible] = useState(false)
     const [activeProject, setActiveProject] = useState(null)
 

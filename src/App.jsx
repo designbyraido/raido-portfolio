@@ -56,7 +56,9 @@ function BackgroundRadar() {
   const meshRef = useRef()
   const groupRef = useRef()
 
-  const { displacementTexture, gravityRadius, theme } = useMagiStore()
+  const displacementTexture = useMagiStore((state) => state.displacementTexture)
+  const gravityRadius = useMagiStore((state) => state.gravityRadius)
+  const theme = useMagiStore((state) => state.theme)
 
   const activeTheme = {
     infilAlt: theme?.infilAlt || '#42ea96',
@@ -552,17 +554,9 @@ function TopologyGrid() {
   const setSphereScale = useMagiStore((state) => state.setSphereScale)
   const setSphereActivity = useMagiStore((state) => state.setSphereActivity)
 
-  const { theme, displacementTexture } = useMagiStore()
-
-  const [shapeIndex, setShapeIndex] = useState(() => Math.floor(Math.random() * 6));
-
-  useEffect(() => {
-    setShapeIndex(prev => {
-      let next = Math.floor(Math.random() * 6);
-      if (next === prev) next = (next + 1) % 6;
-      return next;
-    });
-  }, [theme, displacementTexture]);
+  const theme = useMagiStore((state) => state.theme)
+  const displacementTexture = useMagiStore((state) => state.displacementTexture)
+  const shapeIndex = useMagiStore((state) => state.shapeIndex)
 
   const activeTheme = {
     infil: theme?.infil || '#FFB000',
@@ -1022,7 +1016,9 @@ function Home({ uiVisible, setUiVisible }) {
 }
 
 function ArchiveHUD() {
-  const { theme, activeArchiveIndex, expandedProject } = useMagiStore()
+  const theme = useMagiStore((state) => state.theme)
+  const activeArchiveIndex = useMagiStore((state) => state.activeArchiveIndex)
+  const expandedProject = useMagiStore((state) => state.expandedProject)
 
   const numProjects = PROJECTS_DATA.length;
   const radius = 36;
@@ -1060,7 +1056,9 @@ function ArchiveHUD() {
 }
 
 function Archive() {
-  const { expandedProject, setExpandedProject, setTheme } = useMagiStore()
+  const expandedProject = useMagiStore((state) => state.expandedProject)
+  const setExpandedProject = useMagiStore((state) => state.setExpandedProject)
+  const setTheme = useMagiStore((state) => state.setTheme)
   const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
@@ -1172,7 +1170,7 @@ function AnimatedRoutes({ uiVisible, setUiVisible }) {
 
 export default function App() {
   const [uiVisible, setUiVisible] = useState(false);
-  const { theme } = useMagiStore();
+  const theme = useMagiStore((state) => state.theme);
   const activeTheme = { infil: theme?.infil || '#FFB000', infilAlt: theme?.infilAlt || '#42ea96', breach: theme?.breach || '#FF3333' };
 
   useEffect(() => {
