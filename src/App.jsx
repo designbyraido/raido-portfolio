@@ -973,10 +973,10 @@ function Home({ uiVisible, setUiVisible }) {
           </TerminalPanel>
 
           <div className={`flex flex-col sm:flex-row gap-2 w-full shrink-0 mb-0.5 pointer-events-auto transition-all duration-700 ease-in-out ${uiVisible ? 'delay-200 opacity-100 translate-x-0' : 'delay-150 opacity-0 translate-x-8'}`}>
-            <a href="/Giancarlo_Renzi_CV.pdf" target="_blank" rel="noreferrer" className="flex-1 group block focus:outline-none w-full">
+            <a href="/Resume - Giancarlo Renzi.pdf" target="_blank" rel="noreferrer" className="flex-1 group block focus:outline-none w-full">
               <div className="bg-infil p-[1px] transition-transform duration-100 group-hover:scale-[0.99] h-full" style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}>
                 <div className="bg-[#090A0C] py-2.5 md:py-3 px-2 flex items-center justify-center hover:bg-infil transition-colors duration-100 h-full" style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}>
-                  <span className="font-mono text-xs md:text-[14px] text-infil hover:text-[#090A0C] font-bold tracking-widest uppercase truncate whitespace-nowrap">[ VIEW CV ]</span>
+                  <span className="font-mono text-xs md:text-[14px] text-infil hover:text-[#090A0C] font-bold tracking-widest uppercase truncate whitespace-nowrap">[ RESUME ]</span>
                 </div>
               </div>
             </a>
