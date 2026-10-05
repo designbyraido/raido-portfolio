@@ -982,6 +982,10 @@ function Home({ uiVisible, setUiVisible }) {
 
           <TerminalPanel title="OPERATIVE DATA" flexClass={`shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-0 opacity-100 translate-x-0' : 'delay-[400ms] opacity-0 translate-x-8'}`}>
             <span>Giancarlo Renzi // Alias: Raido.<br />Multidisciplinary Designer.</span>
+            <span className="flex items-center gap-2 mt-0.5">
+              <img src="/Flag_of_Costa_Rica.svg" alt="Costa Rican flag" className="w-4 h-[10px] shrink-0" />
+              Costa Rica // Based in Albany, NY
+            </span>
           </TerminalPanel>
 
           <TerminalPanel title="BIO" flexClass={`flex flex-col shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-75 opacity-100 translate-x-0' : 'delay-300 opacity-0 translate-x-8'}`}>

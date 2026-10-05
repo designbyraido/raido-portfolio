@@ -3,6 +3,39 @@ import { createPortal } from 'react-dom'
 import { PROJECTS_DATA } from './projectsData'
 import { useMagiStore } from './store'
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const posterFor = (src) => src.replace(/\.(mp4|webm|mov)$/i, '.poster.webp')
+
+// Gallery videos only download and play while visible, so opening a project doesn't fetch every clip at once.
+const GalleryVideo = ({ src, className, onClick }) => {
+    const videoRef = useRef(null)
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video || prefersReducedMotion) return
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) video.play().catch(() => {})
+            else video.pause()
+        }, { threshold: 0.25 })
+        observer.observe(video)
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <video
+            ref={videoRef}
+            src={src}
+            poster={posterFor(src)}
+            preload="none"
+            loop
+            muted
+            playsInline
+            className={className}
+            onClick={onClick}
+        />
+    )
+}
+
 const MediaRenderer = ({ src, alt, isLogo = false, onClick }) => {
     if (!src) return null;
 
@@ -13,20 +46,10 @@ const MediaRenderer = ({ src, alt, isLogo = false, onClick }) => {
         : "w-full h-auto block opacity-80 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer";
 
     if (isVideo) {
-        return (
-            <video
-                src={src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={mediaClasses}
-                onClick={() => onClick && onClick(src)}
-            />
-        );
+        return <GalleryVideo src={src} className={mediaClasses} onClick={() => onClick && onClick(src)} />;
     }
 
-    return <img src={src} alt={alt} loading="lazy" className={mediaClasses} onClick={() => onClick && onClick(src)} />;
+    return <img src={src} alt={alt} loading="lazy" decoding="async" className={mediaClasses} onClick={() => onClick && onClick(src)} />;
 };
 
 const LightboxVideoPlayer = ({ src, theme, onClose }) => {
@@ -91,6 +114,7 @@ const LightboxVideoPlayer = ({ src, theme, onClose }) => {
             <video
                 ref={videoRef}
                 src={src}
+                poster={posterFor(src)}
                 autoPlay
                 className="max-w-[95vw] max-h-[85vh] object-contain shadow-2xl"
                 onTimeUpdate={handleTimeUpdate}
@@ -212,6 +236,19 @@ const ZoomableImage = ({ src, onClose }) => {
     );
 };
 
+// Matches Tailwind's md (768px) and lg (1024px) breakpoints.
+const getColumnCount = () => (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1)
+
+const useColumnCount = () => {
+    const [count, setCount] = useState(getColumnCount)
+    useEffect(() => {
+        const onResize = () => setCount(getColumnCount())
+        window.addEventListener('resize', onResize)
+        return () => window.removeEventListener('resize', onResize)
+    }, [])
+    return count
+}
+
 export function ProjectExpandedView({ expandedProjectIndex }) {
     const theme = useMagiStore(state => state.theme)
     const setTheme = useMagiStore(state => state.setTheme)
@@ -219,6 +256,7 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
     const setLightboxMedia = useMagiStore(state => state.setLightboxMedia)
     const [isVisible, setIsVisible] = useState(false)
     const [activeProject, setActiveProject] = useState(null)
+    const columnCount = useColumnCount()
 
     useEffect(() => {
         if (expandedProjectIndex !== null) {
@@ -320,17 +358,21 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
                         </div>
                     </div>
 
-                    {/* Masonry Gallery */}
+                    {/* Masonry Gallery: items fill across rows so the first entries in projectsData lead each column */}
                     <div
-                        className={`columns-1 md:columns-2 lg:columns-3 gap-3 md:gap-4 transition-opacity duration-1000 delay-[600ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                        className={`flex gap-3 md:gap-4 items-start transition-opacity duration-1000 delay-[600ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                         style={{ '--hover-border': theme.infil }}
                     >
-                        {gallery.map((mediaSrc, index) => (
-                            <div
-                                key={index}
-                                className="break-inside-avoid w-full mb-3 md:mb-4 bg-[#050505] border border-[#222222] hover:border-[var(--hover-border)] relative overflow-hidden group transition-colors duration-500"
-                            >
-                                <MediaRenderer src={mediaSrc} alt={`Gallery item ${index + 1}`} onClick={(src) => setLightboxMedia(src)} />
+                        {Array.from({ length: columnCount }, (_, col) => (
+                            <div key={col} className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4">
+                                {gallery.map((mediaSrc, index) => index % columnCount === col && (
+                                    <div
+                                        key={index}
+                                        className="w-full bg-[#050505] border border-[#222222] hover:border-[var(--hover-border)] relative overflow-hidden group transition-colors duration-500"
+                                    >
+                                        <MediaRenderer src={mediaSrc} alt={`${project.title} gallery item ${index + 1}`} onClick={(src) => setLightboxMedia(src)} />
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>
