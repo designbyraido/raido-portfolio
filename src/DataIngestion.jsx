@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import { useMagiStore } from './store'
+import { hasWebGL } from './webgl'
 
 const extractPaletteFromImage = (img, callback) => {
     try {
@@ -519,7 +520,7 @@ export function DataIngestion({ uiVisible = true }) {
                 }
             `}</style>
 
-            <div className="flex gap-1 sm:gap-2 w-full shrink-0">
+            {hasWebGL && <div className="flex gap-1 sm:gap-2 w-full shrink-0">
                 <label className="cursor-pointer text-center p-2 sm:p-2.5 border border-[#E0E0E0] text-[#E0E0E0] text-[9.5px] min-[380px]:text-[11px] sm:text-[13px] font-mono tracking-wider sm:tracking-widest hover:bg-[#E0E0E0] hover:text-[#090A0C] transition-colors flex-[1.5] flex items-center justify-center whitespace-nowrap overflow-hidden">
                     [&nbsp;LOAD&nbsp;TOPOLOGY&nbsp;.JPG&nbsp;]
                     <input type="file" accept="image/jpeg, image/png" className="hidden" onChange={handleImageUpload} />
@@ -527,7 +528,7 @@ export function DataIngestion({ uiVisible = true }) {
                 <button onClick={handleRandomizeTheme} className="cursor-pointer text-center p-2 sm:p-2.5 border border-[#E0E0E0] text-[#E0E0E0] text-[9.5px] min-[380px]:text-[11px] sm:text-[13px] font-mono tracking-wider sm:tracking-widest hover:bg-[#E0E0E0] hover:text-[#090A0C] transition-colors flex-[1] flex items-center justify-center whitespace-nowrap overflow-hidden">
                     [&nbsp;RANDOMIZE&nbsp;]
                 </button>
-            </div>
+            </div>}
 
             <div className="border border-breach p-2 md:p-3 flex flex-col gap-2 md:gap-3 relative group flex-1 min-h-0">
                 <div className="absolute inset-0 bg-breach opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none"></div>

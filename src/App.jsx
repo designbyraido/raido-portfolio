@@ -1,7 +1,7 @@
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { BrowserRouter as Router, Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { OrthographicCamera, MeshDistortMaterial } from '@react-three/drei'
 import { useMagiStore } from './store'
 import { DataIngestion } from './DataIngestion'
@@ -10,6 +10,10 @@ import * as THREE from 'three'
 import { ArchiveCylinder } from './archivecylinder'
 import { ProjectExpandedView } from './ProjectExpandedView'
 import { PROJECTS_DATA } from './projectsData'
+import { hasWebGL } from './webgl'
+import { SafeCanvas, StaticBackdrop, ScannerFallback, ArchiveListFallback } from './SafeCanvas'
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const RaidoLogo = ({ className }) => (
   <svg viewBox="0 0 100 100" className={className} fill="currentColor">
@@ -790,9 +794,13 @@ function DataTicker() {
 
   const [text, setText] = useState(strings[0]);
 
-  useGSAP(() => { gsap.to(tickerRef.current, { xPercent: -50, ease: "none", duration: 30, repeat: -1 }) }, []);
+  useGSAP(() => {
+    if (prefersReducedMotion) return;
+    gsap.to(tickerRef.current, { xPercent: -50, ease: "none", duration: 30, repeat: -1 })
+  }, []);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const chars = "!<>-_\\/[]{}==+*^?#________"; let currentIndex = 0; let scrambleInterval;
     const scramble = () => {
       currentIndex = (currentIndex + 1) % strings.length; const target = strings[currentIndex]; let revealOrder = Array.from({ length: target.length }, (_, i) => i).sort(() => Math.random() - 0.5); let resolvedCount = 0; let tickCount = 0;
@@ -841,18 +849,46 @@ function TerminalPanel({ title, children, flexClass = "shrink-0", footer = null 
   );
 }
 
+const CONTACT_EMAIL = 'designbyraido@gmail.com'
+
+// mailto: does nothing on machines without a mail app, so the address is also shown and copyable.
+function CopyEmail() {
+  const [copied, setCopied] = useState(false)
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+    }
+  }
+
+  return (
+    <div className="flex items-center justify-between gap-2 mt-2 pt-2 border-t border-[#333] text-[13px] md:text-[14px]">
+      <span className="select-all truncate">{CONTACT_EMAIL}</span>
+      <button type="button" onClick={copy} className="shrink-0 px-2 py-0.5 border border-infil font-mono text-[11px] tracking-widest uppercase hud-btn">
+        {copied ? '[ COPIED ]' : '[ COPY ]'}
+      </button>
+    </div>
+  )
+}
+
 function Navigation() {
   const location = useLocation();
   const isArchive = location.pathname === '/archive';
 
+  const navClass = "text-center px-2 py-1 uppercase font-sans font-bold text-[11px] sm:text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap flex-1 bg-[#090A0C] border-infil hud-btn"
+
   return (
-    <nav className="mb-1 lg:mb-2 flex flex-col sm:flex-row gap-2 lg:gap-3 animate-crt-flicker relative z-50 w-full">
+    <nav className="mb-1 lg:mb-2 flex flex-row gap-2 lg:gap-3 animate-crt-flicker relative z-50 w-full">
       {!isArchive ? (
-        <NavLink to="/archive" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Projects // Archive</NavLink>
+        <NavLink to="/archive" className={navClass}>Projects<span className="hidden sm:inline"> // Archive</span></NavLink>
       ) : (
-        <NavLink to="/" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Home // Telemetry</NavLink>
+        <NavLink to="/" className={navClass}>Home<span className="hidden sm:inline"> // Telemetry</span></NavLink>
       )}
-      <a href="mailto:designbyraido@gmail.com" className="text-center px-2 py-1 uppercase font-sans font-bold text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap w-full sm:flex-1 bg-[#090A0C] border-infil hud-btn">Contact // Quotes</a>
+      <a href={`mailto:${CONTACT_EMAIL}`} className={navClass}>Contact<span className="hidden sm:inline"> // Quotes</span></a>
     </nav>
   )
 }
@@ -934,9 +970,9 @@ function Home({ uiVisible, setUiVisible }) {
       <section className={`transition-all duration-1000 ease-in-out h-[40vh] md:h-[50vh] xl:h-full xl:col-span-8 flex flex-col pointer-events-none relative shrink-0 min-h-0`}>
         <div className={`xl:absolute xl:inset-0 flex-1 w-full h-full relative min-h-0 min-w-0 pointer-events-auto transition-colors duration-1000 ease-in-out border ${uiVisible ? 'border-infil' : 'border-transparent'}`}>
           <div className="absolute inset-0">
-            <Canvas><ambientLight intensity={1.0} /><OrthographicCamera makeDefault position={[0, 0, 5]} zoom={80} /><TopologyGrid /></Canvas>
+            <SafeCanvas fallback={<ScannerFallback />}><ambientLight intensity={1.0} /><OrthographicCamera makeDefault position={[0, 0, 5]} zoom={80} /><TopologyGrid /></SafeCanvas>
           </div>
-          <div className={`absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none transition-all duration-1000 ease-in-out ${uiVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}><div className="px-2 py-1 text-infil font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase">[ SCANNING TOPOLOGY... ]</div></div>
+          <div className={`absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none transition-all duration-1000 ease-in-out ${uiVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}><div className="px-2 py-1 text-infil font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase">{hasWebGL ? '[ SCANNING TOPOLOGY... ]' : '[ STATIC MODE ]'}</div></div>
         </div>
       </section>
 
@@ -964,6 +1000,7 @@ function Home({ uiVisible, setUiVisible }) {
               <span className="w-[1px] h-3 bg-infil opacity-40 shrink-0"></span>
               <a href="https://raidosounds.bandcamp.com/" target="_blank" rel="noreferrer" className="hover:text-[#090A0C] hover:bg-infil transition-colors py-0.5">Music</a>
             </div>
+            <CopyEmail />
           </TerminalPanel>
 
           <div className={`flex flex-col sm:flex-row gap-2 w-full shrink-0 mb-0.5 pointer-events-auto transition-all duration-700 ease-in-out ${uiVisible ? 'delay-200 opacity-100 translate-x-0' : 'delay-150 opacity-0 translate-x-8'}`}>
@@ -1101,16 +1138,16 @@ function Archive() {
       onPointerLeave={() => document.body.classList.remove('hovering-ui')}
       className="flex-1 w-full h-full flex flex-col min-h-0 border border-breach relative shadow-breach pointer-events-auto"
     >
-      <div className="flex-1 bg-[#090A0C] relative overflow-hidden flex items-center justify-center min-h-0" style={{ touchAction: 'none' }}>
+      <div className="flex-1 bg-[#090A0C] relative overflow-hidden flex items-center justify-center min-h-0" style={{ touchAction: hasWebGL ? 'none' : 'auto' }}>
 
-        <ArchiveHUD />
+        {hasWebGL && <ArchiveHUD />}
 
-        <Canvas camera={{ position: [0, 0, 5], fov: isMobile ? 42 : 60 }}>
+        <SafeCanvas camera={{ position: [0, 0, 5], fov: isMobile ? 42 : 60 }} fallback={<ArchiveListFallback />}>
           <ambientLight intensity={1.0} />
           <Suspense fallback={null}>
             <ArchiveCylinder />
           </Suspense>
-        </Canvas>
+        </SafeCanvas>
 
         <ProjectExpandedView expandedProjectIndex={expandedProject} />
 
@@ -1126,13 +1163,16 @@ function Archive() {
           </button>
         </div>
 
-        <div className={`absolute bottom-4 right-4 text-breach font-mono text-[9px] md:text-[10px] pointer-events-none z-10 flex flex-col items-end transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-100'}`}>
-          <span>SECTOR 22GR</span>
-          <span className="animate-crt-flicker opacity-80">[ DRAG OR SCROLL ]</span>
-        </div>
-
-        <div className={`absolute top-1/2 left-2 md:left-4 -translate-y-1/2 text-breach font-mono text-4xl md:text-2xl font-black pointer-events-none transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-30'}`}>{'<'}</div>
-        <div className={`absolute top-1/2 right-2 md:right-4 -translate-y-1/2 text-breach font-mono text-4xl md:text-2xl font-black pointer-events-none transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-30'}`}>{'>'}</div>
+        {hasWebGL && (
+          <>
+            <div className={`absolute bottom-4 right-4 text-breach font-mono text-[9px] md:text-[10px] pointer-events-none z-10 flex flex-col items-end transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-100'}`}>
+              <span>SECTOR 22GR</span>
+              <span className="animate-crt-flicker opacity-80">[ DRAG OR SCROLL ]</span>
+            </div>
+            <div className={`absolute top-1/2 left-2 md:left-4 -translate-y-1/2 text-breach font-mono text-4xl md:text-2xl font-black pointer-events-none transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-30'}`}>{'<'}</div>
+            <div className={`absolute top-1/2 right-2 md:right-4 -translate-y-1/2 text-breach font-mono text-4xl md:text-2xl font-black pointer-events-none transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-30'}`}>{'>'}</div>
+          </>
+        )}
       </div>
     </section>
   )
@@ -1191,7 +1231,7 @@ export default function App() {
       <div className="relative w-full h-[100dvh] md:h-screen overflow-hidden bg-[#090A0C]" style={{ '--theme-infil': activeTheme.infil, '--theme-infil-alt': activeTheme.infilAlt, '--theme-breach': activeTheme.breach }}>
 
         <div className="absolute inset-0 z-0">
-          <Canvas><OrthographicCamera makeDefault position={[0, 0, 10]} zoom={40} near={-1000} far={1000} /><BackgroundRadar /></Canvas>
+          <SafeCanvas fallback={<StaticBackdrop />}><OrthographicCamera makeDefault position={[0, 0, 10]} zoom={40} near={-1000} far={1000} /><BackgroundRadar /></SafeCanvas>
           <div className="absolute inset-0 scanlines opacity-30 pointer-events-none"></div>
           <BackgroundFadeOverlay />
         </div>
@@ -1214,6 +1254,9 @@ export default function App() {
             .animate-crt-flicker { animation: crt-flicker 0.15s infinite; }
             @keyframes hud-fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
             .animate-hud-fade { animation: hud-fade-in 4.0s ease-out forwards; }
+            @media (prefers-reduced-motion: reduce) {
+              .animate-crt-flicker, .animate-pulse, .animate-pop-in { animation: none !important; }
+            }
             .scanlines { background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3)); background-size: 100% 4px; }
             
             .custom-scrollbar {
@@ -1274,8 +1317,8 @@ export default function App() {
               <div className={`transition-all duration-1000 ease-in-out pointer-events-auto shrink-0 flex flex-col gap-2 ${uiVisible ? 'opacity-100 translate-y-0' : 'opacity-0 !pointer-events-none -translate-y-4'}`}>
 
                 <div className="animate-crt-flicker bg-[#090A0C] border border-infil w-full flex justify-between shrink-0">
-                  <div className="py-2 px-3 md:py-3 md:px-4 flex flex-col justify-center gap-1 md:gap-1.5 w-full lg:w-max min-w-0">
-                    <h1 className="font-orbitron font-black text-[19.5px] min-[360px]:text-[22.5px] sm:text-[29.5px] md:text-[32px] text-[#E0E0E0] leading-none m-0 tracking-[0.14em] sm:tracking-[0.18em] truncate">
+                  <div className="py-2 px-3 md:py-3 md:px-4 flex flex-col justify-center gap-1 md:gap-1.5 w-max max-w-full min-w-0">
+                    <h1 className="font-orbitron font-black text-[15px] min-[400px]:text-[19px] sm:text-[29.5px] md:text-[32px] text-[#E0E0E0] leading-none m-0 tracking-[0.14em] sm:tracking-[0.18em] truncate">
                       DESIGN BY RAIDO
                     </h1>
                     <Navigation />
