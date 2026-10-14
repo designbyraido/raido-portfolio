@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { PROJECTS_DATA } from './projectsData'
 import { useMagiStore } from './store'
+import { CopyEmail, RESUME_PATH } from './CopyEmail'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const posterFor = (src) => src.replace(/\.(mp4|webm|mov)$/i, '.poster.webp')
@@ -236,6 +237,35 @@ const ZoomableImage = ({ src, onClose }) => {
     );
 };
 
+const ProjectFacts = ({ facts, theme, className = '' }) => {
+    if (!facts) return null
+    const rows = [
+        ['Role', facts.role],
+        ['Year', facts.year],
+        ['Deliverables', facts.deliverables],
+        ['Results', facts.results && facts.results.length ? facts.results : null],
+    ].filter(([, value]) => value)
+
+    return (
+        <dl className={`grid grid-cols-1 sm:grid-cols-[minmax(6.5rem,auto)_1fr] gap-x-6 gap-y-1 sm:gap-y-3 max-w-2xl border-t border-b border-[#222222] py-4 ${className}`}>
+            {rows.map(([label, value]) => (
+                <React.Fragment key={label}>
+                    <dt className="font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase pt-0.5" style={{ color: theme.infil }}>{label}</dt>
+                    <dd className="font-body text-sm md:text-[15px] leading-relaxed text-[#f5f3ef] mb-3 sm:mb-0">
+                        {Array.isArray(value) ? (
+                            <ul className="flex flex-col gap-1">
+                                {value.map((result) => (
+                                    <li key={result}><span style={{ color: theme.infil }}>&gt;</span> {result}</li>
+                                ))}
+                            </ul>
+                        ) : value}
+                    </dd>
+                </React.Fragment>
+            ))}
+        </dl>
+    )
+}
+
 // Matches Tailwind's md (768px) and lg (1024px) breakpoints.
 const getColumnCount = () => (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1)
 
@@ -291,7 +321,7 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
     if (activeProject === null) return null
 
     const project = PROJECTS_DATA[activeProject] || PROJECTS_DATA[0]
-    const gallery = project.images || []
+    const gallery = (project.images || []).map((item) => (typeof item === 'string' ? { src: item } : item))
 
     return (
         <div
@@ -319,12 +349,18 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
                                 >
                                     {project.title}
                                 </h1>
-                                <div className={`flex flex-col gap-1 font-mono text-[10px] md:text-xs tracking-wider opacity-80 mt-2 md:mt-4 transition-opacity duration-700 delay-[300ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                                <div className={`flex flex-col gap-1 font-mono text-[11px] md:text-xs tracking-wider opacity-80 mt-2 md:mt-4 transition-opacity duration-700 delay-[300ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                                     {project.roles.map((role, i) => (
                                         <span key={i} style={{ color: theme.infil }}>{role}</span>
                                     ))}
                                 </div>
                             </div>
+
+                            <ProjectFacts
+                                facts={project.facts}
+                                theme={theme}
+                                className={`mb-8 transition-opacity duration-700 delay-[400ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                            />
 
                             {/* Mobile Logo Area */}
                             <div className={`flex lg:hidden w-full h-48 md:h-64 justify-center items-center my-6 transition-opacity duration-1000 delay-[400ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -338,7 +374,7 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
                             </div>
 
                             <p
-                                className={`text-sm md:text-base leading-relaxed text-[#f5f3ef] opacity-90 max-w-2xl font-sans transition-opacity duration-700 delay-[500ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                                className={`text-sm md:text-base leading-relaxed text-[#f5f3ef] opacity-90 max-w-2xl font-body transition-opacity duration-700 delay-[500ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                                 style={{ whiteSpace: 'pre-line' }}
                                 dangerouslySetInnerHTML={{ __html: project.description }}
                             />
@@ -365,16 +401,31 @@ export function ProjectExpandedView({ expandedProjectIndex }) {
                     >
                         {Array.from({ length: columnCount }, (_, col) => (
                             <div key={col} className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4">
-                                {gallery.map((mediaSrc, index) => index % columnCount === col && (
+                                {gallery.map((item, index) => index % columnCount === col && (
                                     <div
                                         key={index}
                                         className="w-full bg-[#050505] border border-[#222222] hover:border-[var(--hover-border)] relative overflow-hidden group transition-colors duration-500"
                                     >
-                                        <MediaRenderer src={mediaSrc} alt={`${project.title} gallery item ${index + 1}`} onClick={(src) => setLightboxMedia(src)} />
+                                        <MediaRenderer src={item.src} alt={item.caption || `${project.title} gallery item ${index + 1}`} onClick={(src) => setLightboxMedia(src)} />
+                                        {item.caption && (
+                                            <div className="px-3 py-2 border-t border-[#222222] font-mono text-[11px] tracking-wider text-[#bdbdbd]">
+                                                {item.caption}
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                             </div>
                         ))}
+                    </div>
+
+                    <div className={`mt-16 pt-8 border-t border-[#222222] flex flex-col gap-4 max-w-xl transition-opacity duration-1000 delay-[600ms] ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase" style={{ color: theme.breach }}>
+                            Like this work?
+                        </div>
+                        <CopyEmail className="text-[#f5f3ef]" />
+                        <a href={RESUME_PATH} target="_blank" rel="noreferrer" className="self-start px-2 py-0.5 border border-infil font-mono text-[11px] tracking-widest uppercase hud-btn">
+                            [ VIEW RESUME ]
+                        </a>
                     </div>
 
                 </div>

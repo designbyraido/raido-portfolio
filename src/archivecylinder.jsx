@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, Html } from '@react-three/drei'
 import * as THREE from 'three'
@@ -73,6 +73,23 @@ export function ArchiveCylinder() {
         }
     }
 
+    // Keyboard access: arrows step between projects, Enter opens the centered one.
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (expandedProject !== null || e.target.closest('input, textarea, button, a')) return
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault()
+                const nearest = Math.round(targetRotation.current / snapAngle) * snapAngle
+                targetRotation.current = nearest + (e.key === 'ArrowRight' ? snapAngle : -snapAngle)
+                velocity.current = 0
+            } else if (e.key === 'Enter') {
+                setExpandedProject(useMagiStore.getState().activeArchiveIndex)
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [expandedProject, snapAngle, setExpandedProject])
+
     useFrame((state, delta) => {
         if (expandedProject === null) {
             if (!isDragging.current) {
@@ -96,7 +113,7 @@ export function ArchiveCylinder() {
 
     const texturePaths = useMemo(() => PROJECTS_DATA.map(p => {
         if (p.logo) return p.logo;
-        const validImage = p.images && p.images.find(img => !img.toLowerCase().endsWith('.mp4'));
+        const validImage = p.images && p.images.map(img => typeof img === 'string' ? img : img.src).find(src => !src.toLowerCase().endsWith('.mp4'));
         return validImage || '/project_thumb_1_1781201731671.png';
     }), [PROJECTS_DATA])
     const textures = useTexture(texturePaths)

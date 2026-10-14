@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { BrowserRouter as Router, Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, NavLink, Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useFrame } from '@react-three/fiber'
 import { OrthographicCamera, MeshDistortMaterial } from '@react-three/drei'
 import { useMagiStore } from './store'
@@ -11,9 +11,12 @@ import { ArchiveCylinder } from './archivecylinder'
 import { ProjectExpandedView } from './ProjectExpandedView'
 import { PROJECTS_DATA } from './projectsData'
 import { hasWebGL } from './webgl'
-import { SafeCanvas, StaticBackdrop, ScannerFallback, ArchiveListFallback } from './SafeCanvas'
+import { SafeCanvas, StaticBackdrop, ScannerFallback, ArchiveIndex } from './SafeCanvas'
+import { CopyEmail, CONTACT_EMAIL, RESUME_PATH } from './CopyEmail'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const SELECTED_WORK = ['ohm', 'the-publica', 'tiki'].map((id) => PROJECTS_DATA.find((p) => p.id === id))
 
 const RaidoLogo = ({ className }) => (
   <svg viewBox="0 0 100 100" className={className} fill="currentColor">
@@ -849,35 +852,9 @@ function TerminalPanel({ title, children, flexClass = "shrink-0", footer = null 
   );
 }
 
-const CONTACT_EMAIL = 'designbyraido@gmail.com'
-
-// mailto: does nothing on machines without a mail app, so the address is also shown and copyable.
-function CopyEmail() {
-  const [copied, setCopied] = useState(false)
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(CONTACT_EMAIL)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {
-      setCopied(false)
-    }
-  }
-
-  return (
-    <div className="flex items-center justify-between gap-2 mt-2 pt-2 border-t border-[#333] text-[13px] md:text-[14px]">
-      <span className="select-all truncate">{CONTACT_EMAIL}</span>
-      <button type="button" onClick={copy} className="shrink-0 px-2 py-0.5 border border-infil font-mono text-[11px] tracking-widest uppercase hud-btn">
-        {copied ? '[ COPIED ]' : '[ COPY ]'}
-      </button>
-    </div>
-  )
-}
-
 function Navigation() {
   const location = useLocation();
-  const isArchive = location.pathname === '/archive';
+  const isArchive = location.pathname.startsWith('/archive');
 
   const navClass = "text-center px-2 py-1 uppercase font-sans font-bold text-[11px] sm:text-xs lg:text-sm tracking-widest border transition-colors duration-100 whitespace-nowrap flex-1 bg-[#090A0C] border-infil hud-btn"
 
@@ -895,7 +872,7 @@ function Navigation() {
 
 function BackgroundFadeOverlay() {
   const location = useLocation();
-  const isArchive = location.pathname === '/archive';
+  const isArchive = location.pathname.startsWith('/archive');
 
   return (
     <div
@@ -988,8 +965,21 @@ function Home({ uiVisible, setUiVisible }) {
             </span>
           </TerminalPanel>
 
+          <TerminalPanel title="SELECTED WORK" flexClass={`shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-[40ms] opacity-100 translate-x-0' : 'delay-[350ms] opacity-0 translate-x-8'}`}>
+            <div className="grid grid-cols-3 gap-2 pb-1">
+              {SELECTED_WORK.map((project) => (
+                <Link key={project.id} to={`/archive/${project.id}`} className="group flex flex-col border border-[#333] hover:border-infil bg-[#050505] transition-colors duration-200">
+                  <div className="h-16 md:h-20 flex items-center justify-center p-2">
+                    <img src={project.logo} alt="" loading="lazy" className="max-w-full max-h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <span className="px-1.5 pb-1.5 font-mono text-[11px] tracking-widest uppercase text-infil truncate">{project.title}</span>
+                </Link>
+              ))}
+            </div>
+          </TerminalPanel>
+
           <TerminalPanel title="BIO" flexClass={`flex flex-col shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-75 opacity-100 translate-x-0' : 'delay-300 opacity-0 translate-x-8'}`}>
-            <div className="flex flex-col gap-3 tracking-normal">
+            <div className="flex flex-col gap-3 tracking-normal font-body">
               <p>I am a  Multidisciplinary Designer with over a decade of experience, holding Bachelor's and Master's degrees in Industrial Design.</p>
               <p>My expertise centers on branding, developed through hands-on practice, continuous education, and dedicated research. My skill set spans graphic design, 3D modeling & product visualization, motion design, sound design, music production, signage, interior implementations, and video editing.</p>
               <p>I have collaborated with boutique studios and international clients. Since 2023 I have worked full-time freelance and currently serve as Art Director for OHM, Albany's electronic music and digital arts non-profit, where I lead branding and creative direction. Originally from Costa Rica, now based in Albany, New York.</p>
@@ -1004,11 +994,11 @@ function Home({ uiVisible, setUiVisible }) {
               <span className="w-[1px] h-3 bg-infil opacity-40 shrink-0"></span>
               <a href="https://raidosounds.bandcamp.com/" target="_blank" rel="noreferrer" className="hover:text-[#090A0C] hover:bg-infil transition-colors py-0.5">Music</a>
             </div>
-            <CopyEmail />
+            <CopyEmail className="mt-2 pt-2 border-t border-[#333]" />
           </TerminalPanel>
 
           <div className={`flex flex-col sm:flex-row gap-2 w-full shrink-0 mb-0.5 pointer-events-auto transition-all duration-700 ease-in-out ${uiVisible ? 'delay-200 opacity-100 translate-x-0' : 'delay-150 opacity-0 translate-x-8'}`}>
-            <a href="/Resume - Giancarlo Renzi.pdf" target="_blank" rel="noreferrer" className="flex-1 group block focus:outline-none w-full">
+            <a href={RESUME_PATH} target="_blank" rel="noreferrer" className="flex-1 group block focus:outline-none w-full">
               <div className="bg-infil p-[1px] transition-transform duration-100 group-hover:scale-[0.99] h-full" style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}>
                 <div className="bg-[#090A0C] py-2.5 md:py-3 px-2 flex items-center justify-center hover:bg-infil transition-colors duration-100 h-full" style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}>
                   <span className="font-mono text-xs md:text-[14px] text-infil hover:text-[#090A0C] font-bold tracking-widest uppercase truncate whitespace-nowrap">[ RESUME ]</span>
@@ -1096,12 +1086,63 @@ function ArchiveHUD() {
   )
 }
 
+const DEFAULT_TITLE = 'Giancarlo Renzi | Visual Designer & Art Director'
+const ARCHIVE_VIEW_KEY = 'archiveView'
+
+const readArchiveView = () => {
+  try {
+    return localStorage.getItem(ARCHIVE_VIEW_KEY) === 'index' ? 'index' : 'carousel'
+  } catch {
+    return 'carousel'
+  }
+}
+
 function Archive() {
   const expandedProject = useMagiStore((state) => state.expandedProject)
   const setExpandedProject = useMagiStore((state) => state.setExpandedProject)
-  const setTheme = useMagiStore((state) => state.setTheme)
   const navigate = useNavigate()
+  const { projectId } = useParams()
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const [view, setView] = useState(readArchiveView)
+  const showIndex = !hasWebGL || view === 'index'
+
+  const chooseView = (next) => {
+    setView(next)
+    try {
+      localStorage.setItem(ARCHIVE_VIEW_KEY, next)
+    } catch {
+      // Remembering the view is a convenience; private windows may block storage.
+    }
+  }
+
+  // The URL decides which project is open, so project links and the Back button work.
+  useEffect(() => {
+    const index = projectId ? PROJECTS_DATA.findIndex((p) => p.id === projectId) : -1
+    if (projectId && index === -1) {
+      navigate('/archive', { replace: true })
+      return
+    }
+    const target = index === -1 ? null : index
+    if (useMagiStore.getState().expandedProject !== target) {
+      if (target !== null) useMagiStore.setState({ activeArchiveIndex: target })
+      setExpandedProject(target)
+    }
+  }, [projectId])
+
+  // Opening or closing a project from the carousel, index, or Return button updates the store; mirror it into the URL.
+  const previousExpanded = useRef(expandedProject)
+  useEffect(() => {
+    if (previousExpanded.current === expandedProject) return
+    previousExpanded.current = expandedProject
+    const id = expandedProject === null ? undefined : PROJECTS_DATA[expandedProject].id
+    if (id !== projectId) navigate(id ? `/archive/${id}` : '/archive')
+  }, [expandedProject])
+
+  useEffect(() => {
+    document.title = expandedProject === null
+      ? 'Projects | Giancarlo Renzi'
+      : `${PROJECTS_DATA[expandedProject].title} | Giancarlo Renzi`
+  }, [expandedProject])
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
@@ -1133,6 +1174,7 @@ function Archive() {
       }
       // Guarantee stock theme restores
       state.setTheme({ infil: '#FFB000', infilAlt: '#42ea96', breach: '#FF3333' });
+      document.title = DEFAULT_TITLE;
     }
   }, [])
 
@@ -1142,32 +1184,52 @@ function Archive() {
       onPointerLeave={() => document.body.classList.remove('hovering-ui')}
       className="flex-1 w-full h-full flex flex-col min-h-0 border border-breach relative shadow-breach pointer-events-auto"
     >
-      <div className="flex-1 bg-[#090A0C] relative overflow-hidden flex items-center justify-center min-h-0" style={{ touchAction: hasWebGL ? 'none' : 'auto' }}>
+      <div className="flex-1 bg-[#090A0C] relative overflow-hidden flex items-center justify-center min-h-0" style={{ touchAction: showIndex ? 'auto' : 'none' }}>
 
-        {hasWebGL && <ArchiveHUD />}
+        {!showIndex && <ArchiveHUD />}
 
-        <SafeCanvas camera={{ position: [0, 0, 5], fov: isMobile ? 42 : 60 }} fallback={<ArchiveListFallback />}>
-          <ambientLight intensity={1.0} />
-          <Suspense fallback={null}>
-            <ArchiveCylinder />
-          </Suspense>
-        </SafeCanvas>
+        {showIndex ? (
+          <ArchiveIndex />
+        ) : (
+          <SafeCanvas camera={{ position: [0, 0, 5], fov: isMobile ? 42 : 60 }} fallback={<ArchiveIndex />}>
+            <ambientLight intensity={1.0} />
+            <Suspense fallback={null}>
+              <ArchiveCylinder />
+            </Suspense>
+          </SafeCanvas>
+        )}
 
         <ProjectExpandedView expandedProjectIndex={expandedProject} />
 
-        <div className="absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none z-30 flex flex-col items-start">
-          <div className="px-2 py-1 text-breach font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase">
+        <div className="absolute top-2 left-2 lg:top-4 lg:left-4 pointer-events-none z-30 flex flex-row items-center gap-2">
+          <div className={`px-2 py-1 text-breach font-mono text-[11px] lg:text-xs tracking-[0.2em] uppercase ${hasWebGL ? 'hidden sm:block' : ''}`}>
             [ ARCHIVE ACCESS ]
           </div>
+          {hasWebGL && (
+            <div role="group" aria-label="Archive view" className={`flex transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-100 pointer-events-auto'}`}>
+              {['carousel', 'index'].map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  aria-pressed={view === option}
+                  onClick={() => chooseView(option)}
+                  className={`px-2 py-1 font-mono text-[11px] lg:text-xs tracking-[0.2em] uppercase border border-breach -ml-px first:ml-0 transition-colors duration-300 ${view === option ? 'bg-breach' : 'bg-[#090A0C] text-breach'}`}
+                  style={view === option ? { color: '#090A0C' } : undefined}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="absolute top-2 right-2 lg:top-4 lg:right-4 pointer-events-none z-30 flex flex-col items-end">
-          <button onClick={handleReturn} className="bg-[#090A0C] px-2 py-1 text-breach font-mono text-[10px] lg:text-xs tracking-[0.2em] uppercase border border-breach hover:bg-breach hover:text-[#090A0C] transition-colors duration-300 pointer-events-auto">
+          <button onClick={handleReturn} className="bg-[#090A0C] px-2 py-1 text-breach font-mono text-[11px] lg:text-xs tracking-[0.2em] uppercase border border-breach hover:bg-breach hover:text-[#090A0C] transition-colors duration-300 pointer-events-auto">
             [ RETURN ]
           </button>
         </div>
 
-        {hasWebGL && (
+        {!showIndex && (
           <>
             <div className={`absolute bottom-4 right-4 text-breach font-mono text-[9px] md:text-[10px] pointer-events-none z-10 flex flex-col items-end transition-opacity duration-500 ${expandedProject !== null ? 'opacity-0' : 'opacity-100'}`}>
               <span>SECTOR 22GR</span>
@@ -1188,17 +1250,21 @@ function AnimatedRoutes({ uiVisible, setUiVisible }) {
   const [transitionState, setTransitionState] = useState('in');
 
   useEffect(() => {
-    if (location.pathname !== displayLocation.pathname) {
-      setTransitionState('out');
-      const t1 = setTimeout(() => {
-        setDisplayLocation(location);
-        const t2 = setTimeout(() => {
-          setTransitionState('in');
-        }, 50);
-        return () => clearTimeout(t2);
-      }, 700);
-      return () => clearTimeout(t1);
+    // Opening a project (/archive -> /archive/ohm) swaps content in place; only switching sections fades the page.
+    const section = (pathname) => pathname.split('/')[1] || '';
+    if (section(location.pathname) === section(displayLocation.pathname)) {
+      if (location.pathname !== displayLocation.pathname) setDisplayLocation(location);
+      return;
     }
+    setTransitionState('out');
+    const t1 = setTimeout(() => {
+      setDisplayLocation(location);
+      const t2 = setTimeout(() => {
+        setTransitionState('in');
+      }, 50);
+      return () => clearTimeout(t2);
+    }, 700);
+    return () => clearTimeout(t1);
   }, [location.pathname, displayLocation.pathname]);
 
   return (
@@ -1206,7 +1272,7 @@ function AnimatedRoutes({ uiVisible, setUiVisible }) {
     <div className={`w-full h-full flex flex-col min-h-0 transition-opacity duration-700 ease-in-out pointer-events-none ${transitionState === 'in' ? 'opacity-100' : 'opacity-0'}`}>
       <Routes location={displayLocation}>
         <Route path="/" element={<Home uiVisible={uiVisible} setUiVisible={setUiVisible} />} />
-        <Route path="/archive" element={<Archive />} />
+        <Route path="/archive/:projectId?" element={<Archive />} />
       </Routes>
     </div>
   );
@@ -1299,6 +1365,7 @@ export default function App() {
             .font-sans, .font-mono, p, span, a, div { font-family: 'IBM Plex Mono', monospace !important; }
             h2.font-mono { font-family: 'IBM Plex Mono', monospace !important; font-weight: 700; }
             .font-orbitron { font-family: 'Orbitron', sans-serif !important; }
+            .font-body, .font-body p, .font-body span, .font-body div, .font-body li { font-family: 'IBM Plex Sans', sans-serif !important; }
 
             .data-ingest-wrapper * { white-space: nowrap !important; }
             .hud-btn { color: var(--theme-infil); text-shadow: 0 0 4px var(--theme-infil); }

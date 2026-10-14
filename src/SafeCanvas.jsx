@@ -59,15 +59,16 @@ export function ScannerFallback() {
         <line x1="100" y1="10" x2="100" y2="190" opacity="0.4" />
         <line x1="10" y1="100" x2="190" y2="100" opacity="0.4" />
       </svg>
-      <div className="font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase text-infil">[ 3D SCANNER OFFLINE ]</div>
-      <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#E0E0E0] opacity-60 max-w-xs">
+      <div className="font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase text-infil">[ 3D SCANNER OFFLINE ]</div>
+      <div className="font-mono text-[11px] tracking-[0.15em] uppercase text-[#E0E0E0] opacity-60 max-w-xs">
         WebGL is unavailable in this browser. Turn on hardware acceleration for the live view.
       </div>
     </div>
   )
 }
 
-export function ArchiveListFallback() {
+// 2D project grid: the "Index" view, and the only view when WebGL is unavailable.
+export function ArchiveIndex() {
   const setExpandedProject = useMagiStore((state) => state.setExpandedProject)
   const expandedProject = useMagiStore((state) => state.expandedProject)
 
@@ -84,9 +85,11 @@ export function ArchiveListFallback() {
         .archive-card:hover, .archive-card:focus-visible { background: var(--theme-breach); outline: none; }
         .archive-card:hover .archive-card-title, .archive-card:focus-visible .archive-card-title { color: #090A0C; }
       `}</style>
-      <div className="max-w-6xl mx-auto mb-3 font-mono text-[10px] tracking-[0.2em] uppercase text-[#E0E0E0] opacity-60">
-        2D ARCHIVE MODE // WEBGL UNAVAILABLE
-      </div>
+      {!hasWebGL && (
+        <div className="max-w-6xl mx-auto mb-3 font-mono text-[11px] tracking-[0.2em] uppercase text-[#E0E0E0] opacity-60">
+          2D ARCHIVE MODE // WEBGL UNAVAILABLE
+        </div>
+      )}
       <ul className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
         {PROJECTS_DATA.map((project, index) => (
           <li key={project.id}>
@@ -96,7 +99,7 @@ export function ArchiveListFallback() {
                   <img src={project.logo} alt="" loading="lazy" className="max-w-full max-h-full object-contain" />
                 ) : null}
               </div>
-              <div className="archive-card-title px-3 pb-3 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">
+              <div className="archive-card-title px-3 pb-3 font-mono text-[11px] md:text-xs tracking-[0.2em] uppercase">
                 {String(index + 1).padStart(2, '0')} // {project.title}
               </div>
             </button>
