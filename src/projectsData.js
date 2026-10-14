@@ -24,7 +24,9 @@ The logo is a custom wordmark built around a bold, rounded geometric "A" that di
 
     // Gallery entries are either a path or { src, caption }.
     images: [
-      { src: '/ohm/venue opening teaser.mp4', caption: 'Venue opening teaser, Troy NY, headliner Scotia' },
+      { src: '/ohm/venue opening promo.mp4', caption: 'The [OHM]pening: venue opening promo, Scotia & Electronic Meanderings, Troy NY, Oct 17, 2026' },
+      { src: '/ohm/venue opening flyer.webp', caption: 'The [OHM]pening flyer, Oct 17, 2026' },
+      { src: '/ohm/venue opening teaser.mp4', caption: 'The [OHM]pening, early teaser' },
       { src: '/ohm/sobolik flyer.webp', caption: 'Sobolik (NYC) with Raido and Mt. Ida, OHM event #007, Troy NY' },
       { src: '/ohm/sobolik flyer green.webp', caption: 'Sobolik (NYC), alternate colorway' },
       { src: '/ohm/sobolik animated flyer.mp4', caption: 'Sobolik (NYC), animated flyer' },
