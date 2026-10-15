@@ -4,9 +4,9 @@ export const PROJECTS_DATA = [
     title: 'OHM',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#00FFFF', infilAlt: '#0055FF', breach: '#00AAFF' }, // Neon Blue
-    description: `From the inception of OHM, an electronic music and digital art non-profit in Albany, New York, dedicated to technological innovation, community growth, and club culture, I took on the challenge of crafting its brand identity. I led the overall branding, visual direction, and aesthetic development, guiding the project from initial moodboards and conceptual paths through multiple rounds of refinement.
+    description: `OHM is an electronic music and digital arts nonprofit in Albany, New York, built around club culture, new technology and community. I've been with it from the start, leading the brand from the first moodboards and early concepts through several rounds of refinement.
 
-The logo is a custom wordmark built around a bold, rounded geometric "A" that directly represents Albany, the city where OHM is based. A vibrant, multicolored orb sits in the negative space at its center, creating a unified "OHM" mark that balances neo-brutalist structural strength with approachable edge. This design symbolizes OHM's role as a solid, inclusive foundation that supports and amplifies the energy and evolution of the local electronic music and digital art scene. // <a href="https://ohm518.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">OHM518.COM</a> | <a href="https://www.instagram.com/ohm_518/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">INSTAGRAM</a>`,
+The logo is a custom wordmark built around a bold, rounded "A" for Albany, with a multicolored orb sitting in its negative space. It's neo-brutalist in structure but friendly at the edges, which fits a scene that takes the music seriously and is open to everyone. // <a href="https://ohm518.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">OHM518.COM</a> | <a href="https://www.instagram.com/ohm_518/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">INSTAGRAM</a>`,
 
     logo: '/ohm/ohm-logo.png',
     summary: "Brand identity, event campaigns and a venue launch for Albany's electronic music nonprofit.",
@@ -52,9 +52,9 @@ The logo is a custom wordmark built around a bold, rounded geometric "A" that di
     title: 'tiki',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#B026FF', infilAlt: '#5E00C9', breach: '#D042FF' }, // Purple
-    description: `With Nucleo(Panama) // I joined the tiki project, a ticketing platform for music events and festivals in Panama with plans to expand into Germany, after an initial branding attempt by another studio didn't quite hit the mark. My role was to redefine their brand identity and streamline the look and feel of both the app and webpage.
+    description: `I joined tiki through Nucleo, after another studio's take on the brand hadn't landed. tiki is a ticketing platform for electronic music, festivals and nightlife in Panama.
 
-I started by reimagining the logo, a playful yet bold design using a modified Barlow Black font, ensuring it worked seamlessly in white, black, and gradient variations while maintaining strict spacing guidelines for consistency. I crafted a tropical-inspired color palette with vibrant hues like purple (#7229ff), blue (#41b6e6), yellow (#ffbd03), red (#ff2c37), and reddish-purple (#930046), reflecting tiki's warm, adventurous spirit. For typography, I implemented Lulo Clean W01 One Bold for titles and Questrial for subtitles and body text to create a clear hierarchy. I also guided the art direction, ensuring the app and webpage captured tiki's energetic vibe while keeping the user experience intuitive and engaging. // <a href="https://tikitickets.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">TIKITICKETS.COM</a>`,
+I rebuilt the logo from Barlow Black into a chunkier, more playful wordmark that works in white, black, or with a gradient bar running through the letters. The palette is bright and tropical (purple, sky blue, yellow, red), set in Lulo Clean for headlines and Questrial for everything else, and I art directed the app and web screens so it all read as one brand. Two years later, the same logo system is still what tiki hands out on its official brand page. // <a href="https://tikitickets.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">TIKITICKETS.COM</a>`,
     logo: '/tiki/tiki-logo.png',
     summary: 'Brand system for a ticketing platform live in Panama, Costa Rica and Honduras.',
     facts: {
@@ -87,9 +87,9 @@ I started by reimagining the logo, a playful yet bold design using a modified Ba
     title: 'The Publica',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#FF3333', infilAlt: '#AA0000', breach: '#FF0000' }, // Red
-    description: `From the very inception of The Publica, a news platform dedicated to truth, wisdom and understanding. I took on the exciting challenge of shaping its brand identity. I led the branding, look, and feel as well as the webpage design. Starting with the logo: a griffin icon paired with the wordmark "The Publica" in a modified Gloucester MT Extra Condensed, designed in both vertical and horizontal versions with strict clear space rules for consistency. The griffin embodied strength and wisdom, aligning with the brand's mission.
+    description: `The Publica was a news platform built around truth, wisdom and understanding, and I led its design from day one until it closed. I created the brand and designed the website, then kept art directing it the whole time it was live.
 
-I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780) gradient, off-white (#f5f3ef), and tint-black (#0c0000) for contrast, capturing The Publica's engaging tone. Typography was set with Gloucester MT Extra Condensed for titles, EB Garamond for subtitles, and Alte Haas Grotesk for body text to ensure clarity. Additionally, I handled the art direction throughout the time the news site was live, blending creativity and precision to support The Publica's commitment to honest storytelling.`,
+The logo pairs a griffin, for strength and wisdom, with a wordmark in a modified Gloucester MT Extra Condensed, in vertical and horizontal versions with strict clear-space rules. The palette runs from a red to tan gradient, with off-white and a near-black for contrast. Headlines were set in Gloucester MT Extra Condensed, subheads in EB Garamond, and body text in Alte Haas Grotesk to keep long reads easy on the eyes.`,
 
     logo: '/the publica/the publica logo.png',
 
@@ -119,7 +119,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Performance by People',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#88CCFF', infilAlt: '#0077CC', breach: '#44AAFF' }, // Light Blue
-    description: `I was part of Performance by People from its inception, a company focused on helping organizations achieve success through their people. I played a key role in creating the brand identity, starting with the logo, which features a sleek icon and the tagline "Performance by People" in both horizontal and vertical layouts, designed to reflect the company's core values of trust and collaboration. I developed a sophisticated color palette with deep tones balanced by softer shades, to convey reliability and professionalism. For typography, I chose Perpetua Bold for titles and Yu Gothic UI Light and Regular for subtitles and body text to ensure a clear, approachable hierarchy. I also shaped the overall look and feel, emphasizing co-creation and strategic alignment, which mirrored the brand's mission of fostering growth through teamwork and shared purpose.`,
+    description: `Performance by People helps organizations succeed through their people, and I was part of it from the start. I designed the identity: a clean icon with the name in horizontal and vertical layouts, built around the company's values of trust and collaboration.
+
+The palette pairs deep tones with softer shades, so it comes across as reliable and professional. Headlines are set in Perpetua Bold, with Yu Gothic UI Light and Regular for everything else. The overall look leans on co-creation and teamwork, which is the core of what they do.`,
 
     logo: '/pbyp/pbyp-logo.png',
     facts: {
@@ -145,7 +147,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Sav Says',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#FF1133', infilAlt: '#990000', breach: '#FF3355' }, // Red
-    description: `I worked with Sav Says (a web show by influencer and journalist Savannah Hernandez) to shape its brand and website imagery. When I joined the project, the initial brief was to future-proof the brand for a planned transition from strictly political topics into a broader lifestyle space. To bridge this gap, I designed a logo featuring a lip icon paired with a modified Megrath font—chosen for its thick, commanding presence—and developed a bold, versatile palette of black (#0c1015), red (#ce0028), and white (#fff4e2). While internal strategies evolved and the show ultimately retained its core political focus, the visual framework I delivered easily accommodated this pivot back. The clean, modern aesthetic successfully elevated her journalistic storytelling, balancing her signature unapologetic edge with a fresh, highly adaptable brand identity`,
+    description: `Sav Says is a web show by influencer and journalist Savannah Hernandez. The brief was to future-proof the brand for a planned move from politics into a broader lifestyle space. In the end the show stayed political, and the identity worked just as well for that.
+
+The logo is a lip icon with a modified Megrath wordmark, picked for its thick, commanding weight, over a bold black, red and off-white palette. It's clean and modern, and it keeps the unapologetic edge her audience knows her for.`,
     logo: '/sav/sav logo.png',
     facts: {
       role: 'Brand Designer',
@@ -169,7 +173,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Nucleo',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
     theme: { infil: '#E0E0E0', infilAlt: '#777777', breach: '#FFFFFF' }, // White
-    description: `I was deeply involved with Nucleo, a Panamanian design and videography studio, right from its inception, helping to build its identity from the ground up. I led the brand design process, creating a sleek logo that features a minimalist circle and the wordmark "NUCLEO" with a distinctive horizontal line, cementing the studio's modern and creative essence. I developed a bold yet versatile color palette using black (#000000) and warm B&W tones, with accents derived from client projects to showcase our work dynamically. For typography, I chose Montserrat in bold and regular styles, ensuring a clean and professional look that complements the visual storytelling. I also guided the art direction, shaping the aesthetic across platforms, from website imagery to email signatures and social media assets for LinkedIn and Instagram.`,
+    description: `Nucleo is a design and videography studio in Panama, and I helped build its identity from the ground up. The logo is a minimal circle over the NUCLEO wordmark, with a distinctive horizontal line.
+
+The palette is mostly black and warm black-and-white tones, with accent colors pulled from each client project so the studio's own work does the talking. Everything is set in Montserrat, bold and regular. I also art directed how the brand showed up everywhere else: website imagery, email signatures, and social posts for LinkedIn and Instagram.`,
 
     logo: '/nucleo/nucleo logo.png',
     facts: {
@@ -194,7 +200,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Café Olympia',
     roles: ['>Spatial Design', '>Furniture', '>Photography', '>Graphics / Music'],
     theme: { infil: '#0088FF', infilAlt: '#0033AA', breach: '#00BBFF' }, // Blue
-    description: `I collaborated with "elastica <>" on Café Olympia, a vibrant project that brought a unique cafe experience to life. From the start, I contributed with furniture design, crafting minimalist benches, stools, and tables with a nod to vintage Italian design, blending clean lines with a contemporary aesthetic using lightweight materials. I also handled the spatial design, creating an inviting layout that harmonized the interior with the outdoor seating area, ensuring a cohesive flow. Additionally, I captured the menu photography, showcasing dishes and the cafe's fresh offerings. I created content for social media platforms and composed soundtracks for promotional videos, adding a layer of audio branding to the project.`,
+    description: `Café Olympia was a collaboration with Elastica on a new café. I designed the furniture, minimal benches, stools and tables with a nod to vintage Italian design in lightweight materials, and planned the layout so the inside and the outdoor seating flowed together.
+
+I also shot the menu photography, made social content, and composed the soundtracks for the promo videos, which gave the place a sound of its own.`,
 
     logo: '/olympia/olympia-logo.png',
     facts: {
@@ -229,7 +237,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Marriott',
     roles: ['>Signage', '>Furniture'],
     theme: { infil: '#FF4444', infilAlt: '#BB0000', breach: '#FF2222' }, // Red
-    description: `I worked on the Marriott Vacation Club project in Hermosa, Costa Rica, where I contributed to both signage and furniture design. I crafted elegant exterior and interior navigation signs using real forest wood, sustainably sourced to reflect the local Pacific culture, with a minimalist design featuring white matte lettering and geometric patterns that blend craftsmanship with machine production. The signage included clear directional markers for areas like the Vacation Club and Pool Area, designed with a focus on simplicity and visual harmony. For the furniture, I designed functional pieces such as benches and tables, incorporating a lightweight yet sturdy structure inspired by local design, ensuring they complemented the resort's aesthetic. This project allowed me to merge natural elegance with modern practicality, enhancing the guest experience at this stunning coastal location.`,
+    description: `For the Marriott Vacation Club in Hermosa, Costa Rica, I designed the signage and some of the furniture. The indoor and outdoor wayfinding signs are made from sustainably sourced local wood, with white matte lettering and geometric patterns that mix hand craftsmanship with machine production, a nod to the local Pacific culture.
+
+I kept the signs simple and easy to read, marking places like the Vacation Club and the pool area. The benches and tables follow the same idea: light but sturdy, inspired by local design, and made to sit naturally in the resort.`,
 
     logo: '/Marriott/marriott-logo.png',
     facts: {
@@ -252,7 +262,9 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Kinkara',
     roles: ['>Signage', '>Furniture', '>Project Management', '>Graphics / Photography'],
     theme: { infil: '#9933FF', infilAlt: '#440099', breach: '#CC66FF' }, // Purple
-    description: `I worked on the Kinkara project, a unique spatial landscaping initiative and glamp site, where I took on the signage design, project management for design application with the local woodshop, social media graphics, and photography. Living on-site for four months allowed me to immerse myself in the project, ensuring the signage designs, including entrance markers, wayfinding signs, and secret place indicators, felt naturally integrated into the environment using sustainably sourced wood with CNC-carved details and natural finishes. As project manager, I collaborated closely with the woodshop to oversee the precise application of geometric patterns and color-coded elements, adapting to the site's rhythm. I also created engaging social media graphics to highlight the project's aesthetic and captured photography that showcased it as well, enhancing Kinkara's visual narrative and deep connection to nature.`,
+    description: `Kinkara is a landscaping project and glamping site, and I lived there for four months while working on it. That time on-site shaped everything: entrance markers, wayfinding signs and small markers for hidden spots, all in sustainably sourced wood with CNC-carved details and natural finishes.
+
+I also managed fabrication with the local woodshop, overseeing how the geometric patterns and color-coded elements were applied, and working around the pace of the site. On top of that, I made the social media graphics and shot the photography.`,
     logo: '/Kinkara/kinkara-logo.png',
     facts: {
       role: 'Signage Designer & Project Manager',
@@ -279,7 +291,7 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
     title: 'Misc. Work',
     roles: ['>More Branding', '>More Signange', '>More Design', '>More Photos'],
     theme: { infil: '#42ea96', infilAlt: '#008844', breach: '#00FF66' }, // Green
-    description: `Gallery of curated imagery from other previous projects.`,
+    description: `A mix of branding, signage, design and photography from other projects over the years.`,
     logo: '/other brands/ob-logo.png',
     images: [
       '/other brands/ob image 0.webp',

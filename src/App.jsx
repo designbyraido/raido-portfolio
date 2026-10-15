@@ -985,9 +985,9 @@ function Home({ uiVisible, setUiVisible }) {
 
           <TerminalPanel title="BIO" flexClass={`flex flex-col shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-75 opacity-100 translate-x-0' : 'delay-300 opacity-0 translate-x-8'}`}>
             <div className="flex flex-col gap-3 tracking-normal font-body">
-              <p>I am a  Multidisciplinary Designer with over a decade of experience, holding Bachelor's and Master's degrees in Industrial Design.</p>
-              <p>My expertise centers on branding, developed through hands-on practice, continuous education, and dedicated research. My skill set spans graphic design, 3D modeling & product visualization, motion design, sound design, music production, signage, interior implementations, and video editing.</p>
-              <p>I have collaborated with boutique studios and international clients. Since 2023 I have worked full-time freelance and currently serve as Art Director for OHM, Albany's electronic music and digital arts non-profit, where I lead branding and creative direction. Originally from Costa Rica, now based in Albany, New York.</p>
+              <p>I'm a multidisciplinary designer with 10 years of experience, trained as an industrial designer: a Bachelor's in Industrial Design from Universidad Veritas in Costa Rica and a Master's in Product Design and Development from ELISAVA in Barcelona.</p>
+              <p>Branding is where I spend most of my time, but the work usually spills into other things: 3D and product visualization, motion design, signage and interiors, video editing, and the music and sound design I make as Raido.</p>
+              <p>I've worked with boutique studios and clients in Costa Rica, Mexico, Panama and the US. I've been freelancing full-time since 2024, and I'm the art director for OHM, Albany's electronic music and digital arts nonprofit. Originally from Costa Rica, now based in Albany, New York.</p>
             </div>
           </TerminalPanel>
 
