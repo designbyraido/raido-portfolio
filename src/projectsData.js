@@ -67,10 +67,6 @@ I rebuilt the logo from Barlow Black into a chunkier, more playful wordmark that
       ],
     },
     images: [
-      { src: '/tiki/tiki live home.webp', caption: 'Brand in use today: tikitickets.com home page, 2026 (page design by others)' },
-      { src: '/tiki/tiki live mobile.webp', caption: 'Brand in use today: tikitickets.com on mobile, 2026 (page design by others)' },
-      { src: '/tiki/tiki live brand.webp', caption: "Brand in use today: tiki's official brand resources page, 2026 (page design by others)" },
-      { src: '/tiki/tiki live events.webp', caption: 'Brand in use today: events page, 2026 (page design and event artwork by others)' },
       '/tiki/tiki image 1.webp',
       '/tiki/tiki image 2.webp',
       '/tiki/tiki image 3.webp',
@@ -80,6 +76,10 @@ I rebuilt the logo from Barlow Black into a chunkier, more playful wordmark that
       '/tiki/tiki image 7.webp',
       '/tiki/tiki image 8.webp',
       '/tiki/tiki image 9.webp',
+      { src: '/tiki/tiki live home.webp', caption: 'Brand in use today: tikitickets.com home page, 2026 (page design by others)' },
+      { src: '/tiki/tiki live mobile.webp', caption: 'Brand in use today: tikitickets.com on mobile, 2026 (page design by others)' },
+      { src: '/tiki/tiki live brand.webp', caption: "Brand in use today: tiki's official brand resources page, 2026 (page design by others)" },
+      { src: '/tiki/tiki live events.webp', caption: 'Brand in use today: events page, 2026 (page design and event artwork by others)' },
     ]
   },
   {
