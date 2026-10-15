@@ -8,8 +8,8 @@ export const PROJECTS_DATA = [
 
 The logo is a custom wordmark built around a bold, rounded geometric "A" that directly represents Albany, the city where OHM is based. A vibrant, multicolored orb sits in the negative space at its center, creating a unified "OHM" mark that balances neo-brutalist structural strength with approachable edge. This design symbolizes OHM's role as a solid, inclusive foundation that supports and amplifies the energy and evolution of the local electronic music and digital art scene. // <a href="https://ohm518.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">OHM518.COM</a> | <a href="https://www.instagram.com/ohm_518/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">INSTAGRAM</a>`,
 
-    // JUST ADD THIS LINE RIGHT HERE:
     logo: '/ohm/ohm-logo.png',
+    summary: "Brand identity, event campaigns and a venue launch for Albany's electronic music nonprofit.",
 
     facts: {
       role: 'Art Director & Graphic Designer',
@@ -48,6 +48,41 @@ The logo is a custom wordmark built around a bold, rounded geometric "A" that di
     ]
   },
   {
+    id: 'tiki',
+    title: 'tiki',
+    roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
+    theme: { infil: '#B026FF', infilAlt: '#5E00C9', breach: '#D042FF' }, // Purple
+    description: `With Nucleo(Panama) // I joined the tiki project, a ticketing platform for music events and festivals in Panama with plans to expand into Germany, after an initial branding attempt by another studio didn't quite hit the mark. My role was to redefine their brand identity and streamline the look and feel of both the app and webpage.
+
+I started by reimagining the logo, a playful yet bold design using a modified Barlow Black font, ensuring it worked seamlessly in white, black, and gradient variations while maintaining strict spacing guidelines for consistency. I crafted a tropical-inspired color palette with vibrant hues like purple (#7229ff), blue (#41b6e6), yellow (#ffbd03), red (#ff2c37), and reddish-purple (#930046), reflecting tiki's warm, adventurous spirit. For typography, I implemented Lulo Clean W01 One Bold for titles and Questrial for subtitles and body text to create a clear hierarchy. I also guided the art direction, ensuring the app and webpage captured tiki's energetic vibe while keeping the user experience intuitive and engaging. // <a href="https://tikitickets.com/" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">TIKITICKETS.COM</a>`,
+    logo: '/tiki/tiki-logo.png',
+    summary: 'Brand system for a ticketing platform live in Panama, Costa Rica and Honduras.',
+    facts: {
+      role: 'Brand & UI Designer (with Nucleo)',
+      year: '2024',
+      deliverables: 'Logo redesign, color palette, typography, app and web art direction',
+      results: [
+        'Live in Panama, Costa Rica and Honduras',
+        "Brand system in official use on tiki's brand resources page",
+      ],
+    },
+    images: [
+      { src: '/tiki/tiki live home.webp', caption: 'Brand in use today: tikitickets.com home page, 2026 (page design by others)' },
+      { src: '/tiki/tiki live mobile.webp', caption: 'Brand in use today: tikitickets.com on mobile, 2026 (page design by others)' },
+      { src: '/tiki/tiki live brand.webp', caption: "Brand in use today: tiki's official brand resources page, 2026 (page design by others)" },
+      { src: '/tiki/tiki live events.webp', caption: 'Brand in use today: events page, 2026 (page design and event artwork by others)' },
+      '/tiki/tiki image 1.webp',
+      '/tiki/tiki image 2.webp',
+      '/tiki/tiki image 3.webp',
+      '/tiki/tiki image 4.webp',
+      '/tiki/tiki image 5.webp',
+      '/tiki/tiki image 6.webp',
+      '/tiki/tiki image 7.webp',
+      '/tiki/tiki image 8.webp',
+      '/tiki/tiki image 9.webp',
+    ]
+  },
+  {
     id: 'the-publica',
     title: 'The Publica',
     roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
@@ -77,33 +112,6 @@ I also developed a warm color palette, featuring a red (#f20000) to tan (#ecb780
       '/the publica/the publica image 6.webp',
       '/the publica/the publica image 7.webp',
       '/the publica/the publica image 8.webp',
-    ]
-  },
-  {
-    id: 'tiki',
-    title: 'tiki',
-    roles: ['>Brand Design', '>Art Direction', '>Webpage & Graphics Design'],
-    theme: { infil: '#B026FF', infilAlt: '#5E00C9', breach: '#D042FF' }, // Purple
-    description: `With Nucleo(Panama) // I joined the tiki project, a vibrant storefront and app for music events in Panama with plans to expand into Germany, after an initial branding attempt by another studio didn't quite hit the mark. My role was to redefine their brand identity and streamline the look and feel of both the app and webpage.
-
-I started by reimagining the logo, a playful yet bold design using a modified Barlow Black font, ensuring it worked seamlessly in white, black, and gradient variations while maintaining strict spacing guidelines for consistency. I crafted a tropical-inspired color palette with vibrant hues like purple (#7229ff), blue (#41b6e6), yellow (#ffbd03), red (#ff2c37), and reddish-purple (#930046), reflecting tiki's warm, adventurous spirit. For typography, I implemented Lulo Clean W01 One Bold for titles and Questrial for subtitles and body text to create a clear hierarchy. I also guided the art direction, ensuring the app and webpage captured tiki's energetic vibe while keeping the user experience intuitive and engaging.`,
-    logo: '/tiki/tiki-logo.png',
-    facts: {
-      role: 'Brand & UI Designer (with Nucleo)',
-      year: '2024',
-      deliverables: 'Logo redesign, color palette, typography, app and web art direction',
-      results: ['Launched in Germany'],
-    },
-    images: [
-      '/tiki/tiki image 1.webp',
-      '/tiki/tiki image 2.webp',
-      '/tiki/tiki image 3.webp',
-      '/tiki/tiki image 4.webp',
-      '/tiki/tiki image 5.webp',
-      '/tiki/tiki image 6.webp',
-      '/tiki/tiki image 7.webp',
-      '/tiki/tiki image 8.webp',
-      '/tiki/tiki image 9.webp',
     ]
   },
   {

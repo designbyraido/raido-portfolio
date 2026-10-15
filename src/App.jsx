@@ -16,7 +16,7 @@ import { CopyEmail, CONTACT_EMAIL, RESUME_PATH } from './CopyEmail'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-const SELECTED_WORK = ['ohm', 'the-publica', 'tiki'].map((id) => PROJECTS_DATA.find((p) => p.id === id))
+const SELECTED_WORK = ['ohm', 'tiki'].map((id) => PROJECTS_DATA.find((p) => p.id === id))
 
 const RaidoLogo = ({ className }) => (
   <svg viewBox="0 0 100 100" className={className} fill="currentColor">
@@ -966,13 +966,18 @@ function Home({ uiVisible, setUiVisible }) {
           </TerminalPanel>
 
           <TerminalPanel title="SELECTED WORK" flexClass={`shrink-0 transition-all duration-700 ease-in-out ${uiVisible ? 'delay-[40ms] opacity-100 translate-x-0' : 'delay-[350ms] opacity-0 translate-x-8'}`}>
-            <div className="grid grid-cols-3 gap-2 pb-1">
+            <div className="grid grid-cols-2 gap-2 pb-1">
               {SELECTED_WORK.map((project) => (
                 <Link key={project.id} to={`/archive/${project.id}`} className="group flex flex-col border border-[#333] hover:border-infil bg-[#050505] transition-colors duration-200">
-                  <div className="h-16 md:h-20 flex items-center justify-center p-2">
+                  <div className="h-24 md:h-28 flex items-center justify-center p-3 border-b border-[#222]">
                     <img src={project.logo} alt="" loading="lazy" className="max-w-full max-h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <span className="px-1.5 pb-1.5 font-mono text-[11px] tracking-widest uppercase text-infil truncate">{project.title}</span>
+                  <div className="flex flex-col gap-1.5 p-2.5 flex-1">
+                    <span className="font-mono text-[12px] font-bold tracking-widest uppercase text-infil">{project.title}</span>
+                    <span className="font-mono text-[11px] tracking-wider uppercase text-[#9a9a9a]">{project.facts.role} · {project.facts.year}</span>
+                    <p className="font-body text-[13px] leading-snug text-[#E0E0E0]">{project.summary}</p>
+                    <span className="mt-auto pt-1 font-mono text-[11px] tracking-widest uppercase text-infil">[ VIEW PROJECT ]</span>
+                  </div>
                 </Link>
               ))}
             </div>
