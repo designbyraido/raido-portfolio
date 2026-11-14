@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Electronic press kit for Raido (Giancarlo Renzi), Costa Rican producer and DJ based in Albany and Troy, NY. Bio, sets, releases, shows, press and booking.">
+<meta property="og:title" content="Raido / Electronic press kit 2026">
+<meta property="og:description" content="Electronic press kit for Raido (Giancarlo Renzi), Costa Rican producer and DJ based in Albany and Troy, NY. Bio, sets, releases, shows, press and booking.">
+<meta property="og:image" content="https://designbyraido.com/epk/img/portrait.jpg">
+<meta property="og:url" content="https://designbyraido.com/epk/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#090A0C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%203000%203000%22%3E%3Crect%20width%3D%223000%22%20height%3D%223000%22%20fill%3D%22%23090A0C%22/%3E%3Cg%20transform%3D%22translate%28300%20300%29%20scale%28.8%29%22%3E%3Cpath%20fill%3D%22%23FFB000%22%20d%3D%22M2768.1%2C31.03H231.9v2937.95h297.04V608.74l1849.61%2C2360.23h379.66l-1145.47-1452.49L2768.1%2C31.03ZM2171.29%2C318.64l-481.5%2C620.2-487.67-618.99%2C969.17-1.21ZM1425.79%2C1273.08L678.68%2C317.89h154.94l668.49%2C858.24-76.32%2C96.95Z%22/%3E%3C/g%3E%3C/svg%3E">
+<title>Raido EPK 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Raido EPK 2026, in the designbyraido.com style.
+   Top: menu buttons and R logo, ticker, then a landscape panel with the RAIDO wordmark (Chakra Petch,
+   the R sized to the letters' cap height by script).
+   Below: laid out like a designbyraido.com archive project page. One framed panel
+   where every section reads like a project entry: big serif title in the theme color, mono role lines,
+   a facts table, plain prose, and a gallery of dark cards with caption bars.
+   Theme follows the archive: one color per project. Raido is amber with green for Eco-Tek, the OHM section switches to OHM's cyan. */
+:root {
+  color-scheme: dark;
+  --void: #090A0C;
+  --well: #050505;
+  --line: #222222;
+  --line-2: #333333;
+  --text: #f5f3ef;
+  --muted: #9a9a9a;
+  --cap: #bdbdbd;
+  --red: #FF3333;
+
+  --c: #FFB000;
+  --c-alt: rgba(255, 176, 0, .55);
+  --c-title: #FFB000;
+  --c-t: rgba(255, 176, 0, .1);
+  --eco: #42ea96;
+
+  --f-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --chamfer: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+.theme-ohm { --c: #00FFFF; --c-alt: #0055FF; --c-title: #00AAFF; --c-t: rgba(0, 255, 255, .08); }
+
+* { box-sizing: border-box; }
+html { background: var(--void); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--text);
+  font: 400 16px/1.7 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  padding: 16px max(12px, env(safe-area-inset-right, 0px)) 28px max(12px, env(safe-area-inset-left, 0px));
+}
+@media (min-width: 900px) { body { padding: 26px max(28px, env(safe-area-inset-right, 0px)) 40px max(28px, env(safe-area-inset-left, 0px)); } }
+img, video { display: block; max-width: 100%; height: auto; }
+video { width: 100%; background: var(--well); }
+a { color: inherit; text-decoration-color: var(--c); text-underline-offset: 3px; }
+a:hover { color: var(--c); }
+:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+ul { margin: 0; padding: 0; list-style: none; }
+figure { margin: 0; }
+section[id] { scroll-margin-top: 20px; }
+
+.page { max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+
+/* ---------- site header + ticker ---------- */
+.head { display: flex; border: 1px solid var(--c); box-shadow: 0 0 4px var(--c); background: var(--void); }
+.head-main { flex: 1; min-width: 0; padding: 10px 14px 12px; display: flex; flex-direction: column; gap: 9px; }
+.nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.nav a {
+  border: 1px solid var(--c); padding: 3px 8px;
+  font: 700 11.5px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--c); text-decoration: none; white-space: nowrap;
+}
+.nav a:hover { background: var(--c); color: var(--void); }
+.head-logo { width: 60px; flex-shrink: 0; border-left: 1px solid var(--c); display: flex; align-items: center; justify-content: center; padding: 10px; }
+.head-logo svg { width: 100%; height: 100%; max-height: 70px; fill: var(--c); filter: drop-shadow(0 0 4px var(--c)); }
+@media (min-width: 700px) { .head-logo { width: 92px; padding: 14px; } }
+
+.ticker { border-top: 1px solid var(--c); border-bottom: 1px solid var(--c); box-shadow: 0 0 4px var(--c); overflow: hidden; white-space: nowrap; padding: 4px 0; user-select: none; }
+.ticker-track { display: inline-flex; animation: tick 60s linear infinite; }
+.ticker-track span { font: 700 12px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--c); padding-right: .6em; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- archive panel ---------- */
+.panel { border: 1px solid var(--c); box-shadow: 3px 3px 0 var(--c); background: var(--void); margin: 0 3px 3px 0; }
+.panel-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px 0; }
+.panel-bar .tag { font: 700 12px/1.3 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); }
+.hud-btn {
+  border: 1px solid var(--c); padding: 3px 9px;
+  font: 700 12px/1.3 var(--f-mono); letter-spacing: .15em; text-transform: uppercase;
+  color: var(--c); text-decoration: none; background: var(--void); cursor: pointer; white-space: nowrap;
+}
+.hud-btn:hover, .hud-btn:focus-visible { background: var(--c); color: var(--void); }
+.inner { max-width: 80rem; margin: 0 auto; padding: 2.5rem clamp(16px, 4.5vw, 64px) 4rem; }
+
+/* ---------- project-entry anatomy ---------- */
+.sec { border-top: 1px solid var(--line); margin-top: 4.5rem; padding-top: 4.5rem; }
+.sec.first { border-top: 0; margin-top: 0; padding-top: 0; }
+.sh { display: flex; flex-direction: column; gap: .9rem; margin-bottom: 2.25rem; }
+@media (min-width: 768px) { .sh { flex-direction: row; align-items: flex-start; gap: 3rem; } }
+.sh h2 { font: 400 clamp(2.7rem, 6.4vw, 5rem)/1 var(--f-serif); color: var(--c-title); }
+.sh h2.xl { font-size: clamp(3.6rem, 10vw, 8rem); }
+.roles { display: flex; flex-direction: column; gap: .2rem; font: 400 12px/1.45 var(--f-mono); letter-spacing: .05em; color: var(--c); opacity: .85; }
+@media (min-width: 768px) { .roles { margin-top: 1rem; } .sh h2.xl + .roles { margin-top: 1.6rem; } }
+.roles li::before { content: ">"; }
+
+h3 { font: 400 1.6rem/1.15 var(--f-serif); color: var(--text); }
+
+.facts {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: 1rem 0; margin: 0; max-width: 44rem;
+}
+@media (min-width: 640px) { .facts { grid-template-columns: minmax(6.5rem, auto) minmax(0, 1fr); column-gap: 1.5rem; row-gap: .8rem; } }
+.facts dt { font: 400 12px/1.5 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); padding-top: .2rem; }
+.facts dd { margin: 0 0 .9rem; font: 400 15px/1.6 var(--f-body); color: var(--text); }
+@media (min-width: 640px) { .facts dd { margin: 0; } }
+.facts dd b { font-weight: 600; }
+.facts dd .sub { display: block; color: var(--muted); font-size: 14px; }
+.facts dd li::before { content: "> "; color: var(--c); }
+.facts dd li + li { margin-top: .2rem; }
+
+.prose { max-width: 42rem; font: 400 16px/1.75 var(--f-body); color: var(--text); }
+.prose p + p { margin-top: 1.1em; }
+.lede { font: 500 clamp(1.15rem, 1.7vw, 1.35rem)/1.5 var(--f-body); max-width: 40rem; }
+
+/* cut-corner buttons, from the home page */
+.cb-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.cb { display: inline-flex; background: var(--c); padding: 1px; clip-path: var(--chamfer); text-decoration: none; border: 0; cursor: pointer; font: inherit; color: inherit; transition: transform .1s; }
+.cb > span {
+  display: flex; align-items: center; justify-content: center; width: 100%;
+  background: var(--void); clip-path: var(--chamfer); padding: 10px 16px;
+  font: 700 13px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--c); white-space: nowrap;
+  transition: background-color .1s, color .1s;
+}
+.cb:hover { transform: scale(.99); }
+.cb:hover > span, .cb:focus-visible > span { background: var(--c); color: var(--void); }
+.cb:focus-visible { outline: none; }
+.cb.red { background: var(--red); }
+.cb.red > span { color: var(--red); }
+.cb.red:hover > span, .cb.red:focus-visible > span { background: var(--red); color: var(--void); }
+.cb.done > span { background: var(--c); color: var(--void); }
+
+/* network links, from the home page */
+.netlinks { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font: 400 15px/1.4 var(--f-mono); }
+.netlinks a { text-decoration: none; padding: 2px 0; }
+.netlinks a:hover { background: var(--c); color: var(--void); }
+.sep { width: 1px; height: 12px; background: var(--c); opacity: .4; }
+
+/* gallery cards with caption bars */
+.card { background: var(--well); border: 1px solid var(--line); transition: border-color .4s; min-width: 0; }
+.card:hover { border-color: var(--c); }
+.card > a { display: block; text-decoration: none; }
+.card .cap { padding: 8px 12px 10px; border-top: 1px solid var(--line); font: 400 11.5px/1.5 var(--f-mono); letter-spacing: .04em; color: var(--cap); }
+.card .cap b { display: block; font: 600 15px/1.4 var(--f-body); letter-spacing: 0; color: var(--text); margin-bottom: 2px; }
+.card .cap b a { text-decoration: none; }
+.card .cap b a:hover { text-decoration: underline; }
+.grid-3 { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+.masonry { columns: 2; column-gap: 12px; }
+@media (min-width: 1024px) { .masonry { columns: 3; column-gap: 16px; } }
+.masonry .card { break-inside: avoid; margin-bottom: 12px; }
+@media (min-width: 1024px) { .masonry .card { margin-bottom: 16px; } }
+
+/* ---------- hero ---------- */
+.hero { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) { .hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 3.5rem; align-items: start; } }
+.hero-main { display: flex; flex-direction: column; gap: 2rem; min-width: 0; }
+.hero .sh { margin-bottom: 0; }
+.portrait img { width: 100%; aspect-ratio: 1; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+@media (max-width: 1023px) {
+  .portrait { max-width: 34rem; }
+  .hero { gap: 2rem; }
+  .hero-main { display: contents; }
+  .hero .sh { order: 1; } .hero .portrait { order: 2; } .hero .facts { order: 3; }
+  .hero .lede { order: 4; } .hero .netlinks { order: 5; } .hero .cb-row { order: 6; }
+}
+@media (max-width: 559px) { .panel-bar .tag { letter-spacing: .1em; } }
+.panel-bar .tag { white-space: nowrap; }
+
+/* ---------- bio ---------- */
+.bios { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) { .bios { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); align-items: start; } }
+.bio-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: .7rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+.bio-head .lab { font: 400 12px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); }
+.bio-head .lab span { color: var(--muted); letter-spacing: .06em; }
+
+/* ---------- sets ---------- */
+.sets { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1100px) { .sets { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+.scale { display: flex; flex-direction: column; gap: 10px; }
+.s-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+.s-name { font: 400 12px/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text); }
+.track { position: relative; height: 28px; border-left: 1px solid var(--line-2); border-right: 1px solid var(--line-2); background-image: linear-gradient(to right, var(--line) 1px, transparent 1px); background-size: 10% 100%; }
+.bar { position: absolute; top: 4px; bottom: 4px; border: 1px solid var(--c); display: flex; align-items: center; padding-left: 8px; font: 700 12px/1 var(--f-mono); color: var(--c); }
+.bar.eco { background: var(--eco); border-color: var(--eco); color: var(--void); }
+.ticks { height: 16px; border: 0; background: none; }
+.ticks span { position: absolute; transform: translateX(-50%); font: 400 11.5px/1 var(--f-mono); color: var(--muted); }
+.legend { display: flex; align-items: center; gap: 8px; margin-top: 6px; font: 400 12px/1.3 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.legend i { width: 14px; height: 10px; background: var(--eco); }
+
+.watch {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center;
+  margin: 3rem 6px 6px 0; padding: 16px;
+  border: 1px solid var(--red); background: var(--well); box-shadow: 6px 6px 0 var(--red);
+  text-decoration: none; color: var(--text); transition: transform .1s, box-shadow .1s;
+}
+.watch:hover { color: var(--text); transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--red); }
+.watch-play { width: 56px; height: 56px; border: 1px solid var(--red); display: grid; place-items: center; }
+.watch-play svg { width: 16px; height: 19px; fill: var(--red); margin-left: 3px; }
+.watch-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.watch-text .k { font: 400 12px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--red); }
+.watch-text b { font: 400 clamp(1.4rem, 2.6vw, 1.9rem)/1.15 var(--f-serif); }
+.watch-text .m { font: 400 12px/1.4 var(--f-mono); color: var(--muted); }
+.watch-cta { font: 700 13px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--red); border: 1px solid var(--red); padding: 9px 12px; white-space: nowrap; }
+.watch:hover .watch-cta { background: var(--red); color: var(--void); }
+@media (max-width: 640px) { .watch { grid-template-columns: auto minmax(0, 1fr); } .watch-cta { grid-column: 1 / -1; text-align: center; } }
+
+/* ---------- eco-tek ---------- */
+.eco-grid { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .eco-grid .prose { grid-column: 1 / -1; } }
+@media (min-width: 1200px) { .eco-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); } .eco-grid .prose { grid-column: auto; } }
+.rel-head { border-bottom: 1px solid var(--line); padding-bottom: .7rem; margin-bottom: .2rem; }
+.rel-head h3 a { text-decoration: none; }
+.rel-head h3 a:hover { color: var(--c); }
+.rel-head .m { display: block; margin-top: .35rem; font: 400 12px/1.4 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--c); }
+.trk { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.trk td { padding: 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.trk .n { width: 2.6em; font: 400 13px/1.6 var(--f-mono); color: var(--c); }
+.trk .t { font: 500 15.5px/1.5 var(--f-body); }
+.trk .t span { display: block; font: 400 13.5px/1.4 var(--f-body); color: var(--muted); }
+.trk .d { width: 3.5em; text-align: right; font: 400 13px/1.6 var(--f-mono); color: var(--muted); }
+.note { margin-top: .8rem; font: 400 12.5px/1.55 var(--f-mono); color: var(--muted); }
+
+/* ---------- releases ---------- */
+.disc-wrap { overflow-x: auto; margin-top: 3.5rem; }
+.disc { width: 100%; min-width: 600px; border-collapse: collapse; }
+.disc th { text-align: left; font: 400 12px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); padding: 0 14px 10px 0; border-bottom: 1px solid var(--line-2); }
+.disc td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; font: 400 15px/1.5 var(--f-body); }
+.disc td:first-child { width: 4.5em; font: 400 13px/1.7 var(--f-mono); color: var(--c); }
+.disc td:last-child { color: var(--muted); width: 30%; }
+.disc b { font-weight: 600; }
+.disc td span { display: block; color: var(--muted); font-size: 14px; }
+.disc tr.era td { border-bottom-color: var(--c-alt); }
+.sub-h { margin: 3.5rem 0 1.25rem; font: 400 12px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); }
+.mixes { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+@media (min-width: 760px) { .mixes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mix { display: grid; grid-template-columns: 112px minmax(0, 1fr); }
+.mix img { width: 100%; aspect-ratio: 1; object-fit: cover; border-right: 1px solid var(--line); }
+.mix .cap { border-top: 0; padding: 10px 12px; }
+
+/* ---------- live ---------- */
+.cities { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 3.5rem; }
+@media (min-width: 1000px) { .cities { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; align-items: start; } }
+.city h3 { padding-bottom: .7rem; border-bottom: 1px solid var(--line); }
+.shows li { display: grid; grid-template-columns: 3.4em minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.shows .y { font: 400 13px/1.6 var(--f-mono); color: var(--c); font-variant-numeric: tabular-nums; }
+.shows b { display: block; font: 600 15.5px/1.45 var(--f-body); }
+.shows div span { display: block; font: 400 14px/1.5 var(--f-body); color: var(--muted); margin-top: 1px; }
+.shows li.res { background: var(--c-t); border-left: 2px solid var(--c); padding-left: 10px; padding-right: 10px; margin-top: 8px; }
+.shows li.res .y { font-weight: 700; }
+
+/* ---------- ohm ---------- */
+.ohm { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1100px) { .ohm { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: start; } }
+.ohm-main { display: flex; flex-direction: column; gap: 2rem; min-width: 0; }
+.ohm-logo { width: 104px; border: 1px solid var(--line); }
+.ohm-grid { columns: 2; column-gap: 12px; }
+@media (min-width: 1024px) { .ohm-grid { column-gap: 16px; } }
+.ohm-grid .card { break-inside: avoid; margin-bottom: 12px; }
+@media (min-width: 1024px) { .ohm-grid .card { margin-bottom: 16px; } }
+
+/* ---------- press ---------- */
+.feature { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 4rem; }
+@media (min-width: 860px) { .feature { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 3rem; align-items: start; } }
+@media (max-width: 859px) { .feature .card { max-width: 24rem; } }
+.feature-text { display: flex; flex-direction: column; gap: 1.1rem; max-width: 44rem; min-width: 0; }
+.feature-text h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.12; }
+.feature-text .by { font: 400 12px/1.5 var(--f-mono); letter-spacing: .04em; color: var(--muted); }
+blockquote { margin: 0; }
+.pull { border-left: 2px solid var(--c); padding: 2px 0 2px 18px; margin-top: .4rem; }
+.pull p { font: 400 clamp(1.35rem, 2.2vw, 1.75rem)/1.3 var(--f-serif); }
+cite { display: block; margin-top: 10px; font: 400 12px/1.4 var(--f-mono); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.quotes { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 3rem; }
+@media (min-width: 860px) { .quotes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; } }
+.quotes blockquote { border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.quotes p { font: 400 1.35rem/1.3 var(--f-serif); }
+.quotes .tr { display: block; margin-top: 8px; font: italic 400 14.5px/1.5 var(--f-body); color: var(--muted); }
+.coverage { max-width: 52rem; border-top: 1px solid var(--line); }
+.coverage li { display: grid; grid-template-columns: 4.2em minmax(0, 1fr); gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font: 400 15px/1.55 var(--f-body); }
+.coverage .y { font: 400 13px/1.7 var(--f-mono); color: var(--c); }
+
+/* ---------- contact ---------- */
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-bottom: 1.6rem; }
+.email { font: 700 clamp(1.4rem, 4.4vw, 3rem)/1.15 var(--f-mono); overflow-wrap: anywhere; min-width: 0; user-select: all; }
+.kit { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 1.4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kit .k { font: 400 12px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--c); margin-right: 6px; }
+.net-grid { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: .6rem; }
+@media (min-width: 640px) { .net-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; } }
+@media (min-width: 1000px) { .net-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.net-grid > div { display: flex; flex-direction: column; gap: 3px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.net-grid .k { font: 400 11.5px/1.4 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.net-grid a { font: 400 15px/1.4 var(--f-mono); text-decoration: none; align-self: flex-start; overflow-wrap: anywhere; }
+.net-grid a:hover { background: var(--c); color: var(--void); }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; padding: 10px 14px; border: 1px solid var(--line-2); }
+.foot-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.foot-left svg { width: 20px; height: 24px; fill: var(--c); flex-shrink: 0; }
+.foot p { font: 400 12.5px/1.5 var(--f-mono); color: var(--muted); }
+.foot a { color: var(--text); }
+
+
+
+/* ---------- landscape panel (shared) ---------- */
+.scan-box { position: relative; border: 1px solid var(--c); box-shadow: 0 0 4px var(--c-alt); background: var(--void); overflow: hidden; }
+.scan-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.scanlines { position: absolute; inset: 0; pointer-events: none; opacity: .22; background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .35) 50%); background-size: 100% 4px; }
+.ret { position: absolute; width: 13px; height: 13px; pointer-events: none;
+  background: linear-gradient(var(--c), var(--c)) center / 1px 100% no-repeat, linear-gradient(var(--c), var(--c)) center / 100% 1px no-repeat; }
+.ret.r-tl { top: 6px; left: 6px; } .ret.r-tr { top: 6px; right: 6px; }
+.ret.r-bl { bottom: 6px; left: 6px; } .ret.r-br { bottom: 6px; right: 6px; }
+.scan-lab { position: absolute; top: 13px; left: 26px; right: 26px; font: 400 12px/1.35 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--c); pointer-events: none; }
+.scan-lab.r { left: auto; color: var(--eco); }
+@media (max-width: 640px) { .scan-lab.r { display: none; } }
+
+
+/* ---------- header: menu buttons and R logo only ---------- */
+.head-main { justify-content: center; padding: 10px 12px; }
+.nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.nav a { text-align: center; padding: 7px 4px; font-size: 12px; }
+.head-logo { width: 62px; padding: 9px; }
+.head-logo svg { max-height: 46px; }
+@media (min-width: 700px) { .head-logo { width: 70px; padding: 10px; } }
+@media (min-width: 980px) { .nav { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; } }
+@media (max-width: 559px) { .nav { gap: 5px; } .nav a { font-size: 11px; letter-spacing: .02em; padding: 6px 2px; } .head-main { padding: 8px; } .head-logo { width: 54px; padding: 8px; } }
+
+/* ---------- wordmark over the landscape ---------- */
+.v1 .scan-box { height: clamp(250px, 34vw, 470px); margin-bottom: 1.75rem; }
+.wordmark {
+  position: absolute; left: clamp(18px, 2.4vw, 32px); bottom: clamp(16px, 2.2vw, 30px); margin: 0;
+  display: flex; align-items: baseline; gap: var(--wm-gap, .16em);
+  line-height: .8; color: var(--text); text-transform: uppercase;
+  text-shadow: 0 0 .2em var(--void), 0 0 .06em var(--void);
+}
+.wordmark svg { height: var(--wm-cap, .72em); width: calc(var(--wm-cap, .72em) * .864); fill: var(--c); flex: none; }
+.wordmark { --wm-cap: .7em; --wm-gap: .16em; font-family: "Chakra Petch", Arial, sans-serif; font-weight: 700; font-size: clamp(3.4rem, 15vw, 12rem); letter-spacing: .03em; }
+.v1-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 4fr); gap: 2rem; align-items: start; }
+.v1-mid { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
+.v1-mid .lede { font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.4; }
+.names { font: 400 12.5px/1.6 var(--f-mono); color: var(--muted); }
+.v1 .facts { max-width: none; padding-top: .6rem; }
+@media (max-width: 1080px) { .v1-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .v1-grid .facts { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .v1-grid { grid-template-columns: minmax(0, 1fr); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="r-mark" viewBox="231 31 2538 2938"><path d="M2768.1,31.03H231.9v2937.95h297.04V608.74l1849.61,2360.23h379.66l-1145.47-1452.49L2768.1,31.03ZM2171.29,318.64l-481.5,620.2-487.67-618.99,969.17-1.21ZM1425.79,1273.08L678.68,317.89h154.94l668.49,858.24-76.32,96.95Z"/></symbol>
+</svg>
+
+<div class="page" id="top">
+
+  <header class="head">
+    <div class="head-main">
+      <nav class="nav" aria-label="Sections">
+        <a href="#bio">Bio</a>
+        <a href="#sets">Sets</a>
+        <a href="#eco-tek">Eco-Tek</a>
+        <a href="#releases">Releases</a>
+        <a href="#live">Live</a>
+        <a href="#ohm">OHM</a>
+        <a href="#press">Press</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <a class="head-logo" href="https://designbyraido.com" target="_blank" rel="noopener" aria-label="Design portfolio, designbyraido.com">
+      <svg aria-hidden="true" focusable="false"><use href="#r-mark"/></svg>
+    </a>
+  </header>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Producer and DJ &nbsp;&bull;&nbsp; Eco-Tek &nbsp;&bull;&nbsp; Dub/Deep Techno &nbsp;&bull;&nbsp; Percussion-Heavy Techno &nbsp;&bull;&nbsp; Hard Drum &amp; Latintek &nbsp;&bull;&nbsp; Resident at Relay, OHM &nbsp;&bull;&nbsp; Albany and Troy, NY &nbsp;&bull;&nbsp; San Jos&eacute;, Costa Rica &nbsp;&bull;&nbsp; Producer and DJ &nbsp;&bull;&nbsp; Eco-Tek &nbsp;&bull;&nbsp; Dub/Deep Techno &nbsp;&bull;&nbsp; Percussion-Heavy Techno &nbsp;&bull;&nbsp; Hard Drum &amp; Latintek &nbsp;&bull;&nbsp; Resident at Relay, OHM &nbsp;&bull;&nbsp; Albany and Troy, NY &nbsp;&bull;&nbsp; San Jos&eacute;, Costa Rica &nbsp;&bull;&nbsp;</span>
+      <span>Producer and DJ &nbsp;&bull;&nbsp; Eco-Tek &nbsp;&bull;&nbsp; Dub/Deep Techno &nbsp;&bull;&nbsp; Percussion-Heavy Techno &nbsp;&bull;&nbsp; Hard Drum &amp; Latintek &nbsp;&bull;&nbsp; Resident at Relay, OHM &nbsp;&bull;&nbsp; Albany and Troy, NY &nbsp;&bull;&nbsp; San Jos&eacute;, Costa Rica &nbsp;&bull;&nbsp; Producer and DJ &nbsp;&bull;&nbsp; Eco-Tek &nbsp;&bull;&nbsp; Dub/Deep Techno &nbsp;&bull;&nbsp; Percussion-Heavy Techno &nbsp;&bull;&nbsp; Hard Drum &amp; Latintek &nbsp;&bull;&nbsp; Resident at Relay, OHM &nbsp;&bull;&nbsp; Albany and Troy, NY &nbsp;&bull;&nbsp; San Jos&eacute;, Costa Rica &nbsp;&bull;&nbsp;</span>
+    </div>
+  </div>
+
+  <main class="panel">
+    <div class="panel-bar">
+      <span class="tag">[ Press kit // 2026 ]</span>
+      <a class="hud-btn" href="#contact">[ Booking ]</a>
+    </div>
+    <div class="inner">
+
+      <section class="sec first v1" aria-labelledby="name">
+        <div class="scan-box">
+          <canvas class="scan" data-sx=".79" aria-hidden="true"></canvas>
+          <div class="scanlines" aria-hidden="true"></div>
+          <span class="ret r-tl" aria-hidden="true"></span><span class="ret r-tr" aria-hidden="true"></span><span class="ret r-bl" aria-hidden="true"></span><span class="ret r-br" aria-hidden="true"></span>
+          <span class="scan-lab" aria-hidden="true">Eco-Tek / field recordings + club rhythm</span>
+          <span class="scan-lab r" aria-hidden="true">120-160 BPM</span>
+          <h1 class="wordmark" id="name"><svg aria-hidden="true" focusable="false"><use href="#r-mark"/></svg><span>Raido</span></h1>
+        </div>
+        <div class="v1-grid">
+        <figure class="card portrait">
+          <img src="img/portrait.jpg" alt="Black and white portrait of Giancarlo Renzi in profile" width="1000" height="1000" loading="lazy">
+          <figcaption class="cap">Photo: Giancarlo Renzi / 2025</figcaption>
+        </figure>
+          <div class="v1-mid">
+            <p class="lede">Costa Rican producer and DJ based in Albany, New York. Resident at Relay, OHM's techno nights in Troy. Dub/deep techno, percussion-heavy techno, hard drum and Latintek.</p>
+            <p class="names">Giancarlo Renzi Yglesias<br>San José, Costa Rica / Albany and Troy, NY</p>
+            <div class="netlinks">
+            <a href="https://raidosounds.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a><span class="sep"></span>
+            <a href="https://subvert.fm/raido" target="_blank" rel="noopener">Subvert</a><span class="sep"></span>
+            <a href="https://ra.co/dj/raido" target="_blank" rel="noopener">RA</a><span class="sep"></span>
+            <a href="https://instagram.com/raidosounds" target="_blank" rel="noopener">Instagram</a><span class="sep"></span>
+            <a href="https://designbyraido.com" target="_blank" rel="noopener">Design work</a>
+          </div>
+            <div class="cb-row">
+            <a class="cb" href="#contact"><span>[ Booking ]</span></a>
+            <a class="cb red" href="https://www.youtube.com/watch?v=dPQfmC1qyjQ&amp;t=2032s" target="_blank" rel="noopener"><span>[ Watch a set ]</span></a>
+          </div>
+          </div>
+          <dl class="facts">
+            <dt>Sound</dt><dd>Eco-Tek: natural field recordings over raw, fast club rhythms</dd>
+            <dt>120-135 BPM</dt><dd>Dub/Deep Techno set</dd>
+            <dt>130-150 BPM</dt><dd>Percussion-Heavy Techno set</dd>
+            <dt>130-160 BPM</dt><dd>Hard Drum &amp; Latintek set</dd>
+            <dt>Resident</dt><dd>Relay at OHM, Troy, NY</dd>
+            <dt>Labels</dt><dd>Body Method, Pollen Music, TMPL, ETA45MINS</dd>
+            <dt>Latest</dt><dd>Empire Plaza, on OHM's Regional Resonance (Nov 2026)</dd>
+          </dl>
+        </div>
+      </section>
+
+      <section class="sec" id="bio" aria-labelledby="bio-h">
+        <div class="sh">
+          <h2 id="bio-h">Bio</h2>
+          <ul class="roles"><li>Short and long versions</li><li>Free to reprint</li></ul>
+        </div>
+        <div class="bios">
+          <div>
+            <div class="bio-head"><span class="lab">Short bio <span>/ 100 words</span></span><button class="hud-btn" type="button" id="copy-bio-short" data-copy="bio-short">[ Copy ]</button></div>
+            <div class="prose" id="bio-short">
+              <p>Raido is the project of Giancarlo Renzi, a Costa Rican producer, DJ and designer based in Albany, New York, where he is art director of the nonprofit OHM and a resident DJ at its Relay techno nights in Troy. His current sound, Eco-Tek, pairs natural field recordings from Costa Rica with fast, percussion-led club rhythms, moving through techno, gqom, breaks and hard drum. As a DJ he plays three kinds of sets: dub/deep techno, percussion-heavy techno, and hard drum and Latintek. Recent releases are out on Body Method (Boston), Pollen Music (Lisbon), TMPL (Costa Rica) and ETA45MINS (Salt Lake City).</p>
+            </div>
+          </div>
+          <div>
+            <div class="bio-head"><span class="lab">Long bio <span>/ 462 words</span></span><button class="hud-btn" type="button" id="copy-bio-long" data-copy="bio-long">[ Copy ]</button></div>
+            <div class="prose" id="bio-long">
+              <p>Raido is the music project of Giancarlo Renzi, a Costa Rican producer, DJ, mastering engineer and designer now based in Albany, New York. Renzi started as a drummer and moved into DJing and production around 2009, playing grime, drum and bass and dubstep in bars around San José. In 2012 he was part of Source, a local collective that brought bass music and a strong visual side to Costa Rican stages. He started the Raido project in 2013.</p>
+              <p>His early records leaned toward hip hop, downtempo and textured electronic beats. The first Raido EP, Meant to Be (2014, Top Cats and NWLA), featured Jesse Baez, and two albums followed in 2015, Aware Pt. 1 and Jera. That period brought shows at Festival NRMAL Costa Rica and the Festival Internacional de las Artes in San José, and at Festival Ceremonia and the Antes del Antes showcase in Mexico City. While living in Barcelona, he made Automatic//Manual, a series of six EPs built from modular loops and structured compositions.</p>
+              <p>Since 2024 his focus has been Eco-Tek, a sound built around natural field recordings such as rustling leaves and insect calls. The tracks are functional and driven by percussion, with isolated kicks and heavy drums, and they move between techno, gqom, breaks and hard drum. Eco-Tek [BMR-002] came out on Boston's Body Method in 2025 and includes Mountain Fires, a track with Durban gqom producer Emo Kid. Other recent releases include Devastation Sounds on Lisbon's Pollen Music, Dare to Chase on the Costa Rican collective TMPL, the Black Fire EP with Tydunn, and Empire Plaza on OHM's compilation Regional Resonance. For That's Hot, on the ETA45MINS compilation RavePro, he worked with only six tracks in the DAW, the limit every artist on the record shared.</p>
+              <p>Renzi holds a B.S. in Industrial Design from Universidad Veritas in Costa Rica and an M.S. in Product Design and Development from ELISAVA in Barcelona, and his music follows the same approach as his design work: direct, functional and industrial, with no extra ornament. He is co-founder and art director of OHM, a grassroots nonprofit for electronic music and digital arts in New York's Capital Region, and has led its brand since the first concepts: the wordmark, event key art and flyers, social campaigns, motion promos, merch and the spatial design of its 120-capacity venue in Troy, which opened in October 2026. Metroland Now featured OHM in its Nonprofit Spotlight that November. He is also a resident DJ at Relay, OHM's techno and breaks night, and plays three kinds of DJ sets: dub/deep techno, percussion-heavy techno, and hard drum and Latintek. Alongside the music, he designs all Raido artwork, builds real-time 3D audio visualizers for live techno events with C++, openFrameworks and GLSL, and keeps a design portfolio at designbyraido.com.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="sets" aria-labelledby="sets-h">
+        <div class="sh">
+          <h2 id="sets-h">Sets</h2>
+          <ul class="roles"><li>Three DJ set types</li><li>120 to 160 BPM</li></ul>
+        </div>
+        <div class="sets">
+          <dl class="facts">
+            <dt>120-135 BPM</dt><dd><b>Dub/Deep Techno</b><span class="sub">Dub techno, deep techno</span></dd>
+            <dt>130-150 BPM</dt><dd><b>Percussion-Heavy Techno</b><span class="sub">Techno, Eco-Tek originals</span></dd>
+            <dt>130-160 BPM</dt><dd><b>Hard Drum &amp; Latintek</b><span class="sub">Gqom, baile funk, Latin club and dembow, breaks, hard drum, Eco-Tek originals</span></dd>
+          </dl>
+          <div class="scale" role="img" aria-label="BPM ranges: Dub/Deep Techno 120 to 135, Percussion-Heavy Techno 130 to 150, Hard Drum and Latintek 130 to 160. The last two include Eco-Tek originals.">
+            <div class="s-row"><span class="s-name">Dub/Deep Techno</span><div class="track"><span class="bar" style="left:10%;width:30%">120-135</span></div></div>
+            <div class="s-row"><span class="s-name">Percussion-Heavy Techno</span><div class="track"><span class="bar eco" style="left:30%;width:40%">130-150</span></div></div>
+            <div class="s-row"><span class="s-name">Hard Drum &amp; Latintek</span><div class="track"><span class="bar eco" style="left:30%;width:60%">130-160</span></div></div>
+            <div class="s-row" aria-hidden="true"><div class="track ticks"><span style="left:10%">120</span><span style="left:30%">130</span><span style="left:50%">140</span><span style="left:70%">150</span><span style="left:90%">160</span></div></div>
+            <p class="legend"><i></i>Includes Eco-Tek originals</p>
+          </div>
+        </div>
+        <a class="watch" href="https://www.youtube.com/watch?v=dPQfmC1qyjQ&amp;t=2032s" target="_blank" rel="noopener">
+          <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg></span>
+          <span class="watch-text">
+            <span class="k">Recorded DJ set / YouTube</span>
+            <b>Raido, Front Room Session 29</b>
+            <span class="m">Front Room Sessions / opens at 33:52</span>
+          </span>
+          <span class="watch-cta">[ Watch ]</span>
+        </a>
+      </section>
+
+      <section class="sec" id="eco-tek" aria-labelledby="eco-h">
+        <div class="sh">
+          <h2 id="eco-h">Eco-Tek</h2>
+          <ul class="roles"><li>Field recordings</li><li>Club rhythm</li><li>2024 to now</li></ul>
+        </div>
+        <div class="eco-grid">
+          <div class="prose">
+            <p>Eco-Tek is Renzi's name for a club sound built from natural field recordings. Leaves, insects and other sounds recorded in the Costa Rican mountains sit on top of raw, fast rhythms with isolated kicks and dense percussion. Eco-Tek tracks run through the Percussion-Heavy Techno and Hard Drum &amp; Latintek sets.</p>
+            <p>The approach comes from industrial design. The music and the design work follow the same rules: direct, functional and brutalist, with no ornament that does not do a job.</p>
+          </div>
+          <div>
+            <div class="rel-head">
+              <h3><a href="https://raidosounds.bandcamp.com/album/intro-to-eco-tek" target="_blank" rel="noopener">Intro to Eco-Tek</a></h3>
+              <span class="m">Self-released / 22 Jan 2025</span>
+            </div>
+            <table class="trk">
+              <tbody>
+                <tr><td class="n">01</td><td class="t">Tek-Girl</td><td class="d">4:15</td></tr>
+                <tr><td class="n">02</td><td class="t">Eco-Tek</td><td class="d">3:52</td></tr>
+                <tr><td class="n">03</td><td class="t">Vulcano<span>with Ovsicori</span></td><td class="d">3:45</td></tr>
+              </tbody>
+            </table>
+            <p class="note">The first sketch of the sound: mountain, jungle and club influences.</p>
+          </div>
+          <div>
+            <div class="rel-head">
+              <h3><a href="https://raidosounds.bandcamp.com/album/eco-tek-bmr-002" target="_blank" rel="noopener">Eco-Tek [BMR-002]</a></h3>
+              <span class="m">Body Method, Boston / 4 Apr 2025</span>
+            </div>
+            <table class="trk">
+              <tbody>
+                <tr><td class="n">01</td><td class="t">CAPS LOCK</td><td class="d">4:20</td></tr>
+                <tr><td class="n">02</td><td class="t">Nautica</td><td class="d">4:44</td></tr>
+                <tr><td class="n">03</td><td class="t">Pain Relief</td><td class="d">4:20</td></tr>
+                <tr><td class="n">04</td><td class="t">Mountain Fires<span>with Emo Kid (Durban)</span></td><td class="d">4:24</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Second release on Body Method. Latin bass, gqom, breaks and techno.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="releases" aria-labelledby="rel-h">
+        <div class="sh">
+          <h2 id="rel-h">Releases</h2>
+          <ul class="roles"><li>Selected releases</li><li>2014 to 2026</li></ul>
+        </div>
+        <div class="grid-3">
+          <figure class="card">
+            <img src="img/regional-resonance.jpg" alt="Regional Resonance compilation cover: a spectrum sphere bursting with colored lines" loading="lazy" width="900" height="900">
+            <figcaption class="cap"><b>Empire Plaza</b>On Regional Resonance, OHM / Nov 2026</figcaption>
+          </figure>
+          <figure class="card">
+            <a href="https://raidosounds.bandcamp.com/album/black-fire-ep" target="_blank" rel="noopener"><img src="img/black-fire.jpg" alt="Black Fire EP cover: chrome lettering over a black and white sculpture" loading="lazy" width="900" height="900"></a>
+            <figcaption class="cap"><b><a href="https://raidosounds.bandcamp.com/album/black-fire-ep" target="_blank" rel="noopener">Black Fire EP</a></b>With Tydunn / Jan 2026</figcaption>
+          </figure>
+          <figure class="card">
+            <video src="video/roiju-2025.mp4" poster="img/eco-tek-poster.jpg" controls playsinline preload="none" width="720" height="720" aria-label="Eco-Tek BMR-002 record label animation, with sound"></video>
+            <figcaption class="cap"><b><a href="https://raidosounds.bandcamp.com/album/eco-tek-bmr-002" target="_blank" rel="noopener">Eco-Tek [BMR-002]</a></b>Body Method, Boston / Apr 2025</figcaption>
+          </figure>
+          <figure class="card">
+            <video src="video/eta45-2025.mp4" poster="img/ravepro-poster.jpg" controls playsinline preload="none" width="720" height="720" aria-label="RavePro ETA 20 compilation promo clip, with sound"></video>
+            <figcaption class="cap"><b><a href="https://eta45mins.bandcamp.com/album/ravepro-eta-20" target="_blank" rel="noopener">That's Hot, on RavePro [ETA 20]</a></b>ETA45MINS, Salt Lake City / Nov 2025</figcaption>
+          </figure>
+          <figure class="card">
+            <a href="https://pollenmusica.bandcamp.com/album/devastation-sounds" target="_blank" rel="noopener"><img src="img/devastation-sounds.jpg" alt="Devastation Sounds cover: translucent liquid form" loading="lazy" width="900" height="900"></a>
+            <figcaption class="cap"><b><a href="https://pollenmusica.bandcamp.com/album/devastation-sounds" target="_blank" rel="noopener">Devastation Sounds [P003]</a></b>Pollen Music, Lisbon / Mar 2024</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="img/dare-to-chase.jpg" alt="Dare to Chase EP cover: chrome insect shape on dark green" loading="lazy" width="900" height="900">
+            <figcaption class="cap"><b>Dare to Chase EP</b>TMPL, Costa Rica / Feb 2024</figcaption>
+          </figure>
+        </div>
+
+        <div class="disc-wrap">
+          <table class="disc">
+            <thead><tr><th>Year</th><th>Release</th><th>Label</th></tr></thead>
+            <tbody>
+              <tr><td>2026</td><td><b>Empire Plaza</b><span>On Regional Resonance: Sounds from Upstate New York (November)</span></td><td>OHM</td></tr>
+              <tr><td>2026</td><td><b>LVR</b><span>Single</span></td><td>Self-released</td></tr>
+              <tr><td>2026</td><td><b>CULO // SHAKER</b></td><td>Self-released</td></tr>
+              <tr><td>2026</td><td><b>Black Fire EP</b><span>Black Fire with Tydunn, Sol Dos</span></td><td>Self-released</td></tr>
+              <tr><td>2025</td><td><b>That's Hot</b><span>On RavePro [ETA 20], built with only six tracks in the DAW</span></td><td>ETA45MINS, Salt Lake City</td></tr>
+              <tr><td>2025</td><td><b>Emo Kid, Speed Limit (Eco-Tek Remix)</b></td><td>Self-released</td></tr>
+              <tr><td>2025</td><td><b>Eco-Tek [BMR-002]</b><span>Includes Mountain Fires with Emo Kid</span></td><td>Body Method, Boston</td></tr>
+              <tr class="era"><td>2025</td><td><b>Intro to Eco-Tek</b><span>Includes Vulcano with Ovsicori</span></td><td>Self-released</td></tr>
+              <tr><td>2024</td><td><b>Devastation Sounds [P003]</b><span>Gqomtico, Druchii, Edge, Jungle Wars</span></td><td>Pollen Music, Lisbon</td></tr>
+              <tr><td>2024</td><td><b>Dare to Chase EP</b><span>Stone 2, Glimpses, Dare to Chase</span></td><td>TMPL, Costa Rica</td></tr>
+              <tr><td>2022</td><td><b>Leaving the Tropics</b></td><td>Self-released</td></tr>
+              <tr class="era"><td>2022</td><td><b>Coastal Erosion EP</b></td><td>Self-released</td></tr>
+              <tr><td>2017</td><td><b>Automatic // Manual</b><span>Six EPs made in Barcelona</span></td><td>Self-released</td></tr>
+              <tr><td>2015</td><td><b>Jera</b><span>LP</span></td><td></td></tr>
+              <tr><td>2015</td><td><b>Aware Pt. 1</b><span>LP with Jesse Baez, Felipe Pérez (424) and Lilac</span></td><td></td></tr>
+              <tr><td>2014</td><td><b>Meant to Be EP</b><span>Title track with Jesse Baez</span></td><td>Top Cats and NWLA [TC 001]</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="sub-h">Mixes</p>
+        <div class="mixes">
+          <figure class="card mix">
+            <img src="img/clear-the-floor-008.jpg" alt="Clear the Floor Mix 008 cover" loading="lazy" width="700" height="700">
+            <figcaption class="cap"><b>Clear the Floor, Mix 008</b>Mix series from the Boston label / 2023</figcaption>
+          </figure>
+          <figure class="card mix">
+            <img src="img/dumbanengue-16.jpg" alt="Dumbanengue Sounds Vol. 16 cover with a photo of Raido" loading="lazy" width="700" height="700">
+            <figcaption class="cap"><b>Dumbanengue Sounds, Vol. 16</b>Radio and online show, Uganda / 2024</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="sec" id="live" aria-labelledby="live-h">
+        <div class="sh">
+          <h2 id="live-h">Live</h2>
+          <ul class="roles"><li>Selected shows</li><li>3 cities</li><li>2014 to 2026</li></ul>
+        </div>
+        <div class="cities">
+          <div class="city">
+            <h3>Albany and Troy, NY</h3>
+            <ul class="shows">
+              <li class="res"><span class="y">Now</span><div><b>Resident DJ, Relay</b><span>OHM's techno and breaks night, Troy, since October 2026</span></div></li>
+              <li><span class="y">2026</span><div><b>Relay #001</b><span>Halloween at OHM, Troy, with Zaza and PS11</span></div></li>
+              <li><span class="y">2026</span><div><b>Sobolik (NYC), OHM event #007</b><span>Mt. Ida, Troy, with DRC</span></div></li>
+              <li><span class="y">2026</span><div><b>Craft Beats</b><span>518 Craft, Troy, with DRC</span></div></li>
+              <li><span class="y">2025</span><div><b>OHM launch fundraiser</b><span>Outdoors at Darkhorse, Albany</span></div></li>
+              <li><span class="y">2025</span><div><b>Minimal Monday</b><span>The Skyway, Albany, with The Skyway Collective</span></div></li>
+            </ul>
+          </div>
+          <div class="city">
+            <h3>San José, Costa Rica</h3>
+            <ul class="shows">
+              <li><span class="y">2024</span><div><b>CRUDO by TMPL</b><span>Le Chandelier, with Daria Kolosova (Ukraine)</span></div></li>
+              <li><span class="y">2023</span><div><b>Clorofila</b><span>Espacio Exó, DJ set</span></div></li>
+              <li><span class="y">2019</span><div><b>Semana U</b><span>Universidad de Costa Rica</span></div></li>
+              <li><span class="y">2015</span><div><b>Festival NRMAL Costa Rica</b><span>Lineup with The Sonics, Helado Negro, Buscabulla and Gepe</span></div></li>
+              <li><span class="y">2014</span><div><b>Festival Internacional de las Artes</b><span>San José</span></div></li>
+            </ul>
+          </div>
+          <div class="city">
+            <h3>Mexico City</h3>
+            <ul class="shows">
+              <li><span class="y">2018</span><div><b>Nueva Rara Latinoamérica</b><span>NWLA, Laguna</span></div></li>
+              <li><span class="y">2015</span><div><b>Festival Ceremonia</b><span>Mexico City</span></div></li>
+              <li><span class="y">2014</span><div><b>Antes del Antes</b><span>Launch party by NWLA, Remezcla and Finesse Records</span></div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="masonry">
+          <figure class="card"><img src="img/craft-beats-2026.jpg" alt="Craft Beats flyer, 518 Craft, Troy" loading="lazy" width="700" height="875"><figcaption class="cap">Craft Beats, 518 Craft / Troy / 2026</figcaption></figure>
+          <figure class="card"><img src="img/skyway-2025.jpg" alt="Minimal Monday flyer, The Skyway Collective with Raido" loading="lazy" width="700" height="875"><figcaption class="cap">Minimal Monday, The Skyway / Albany / 2025</figcaption></figure>
+          <figure class="card"><img src="img/crudo-2024.jpg" alt="CRUDO flyer with Daria Kolosova" loading="lazy" width="700" height="875"><figcaption class="cap">CRUDO by TMPL / San José / 2024</figcaption></figure>
+          <figure class="card"><img src="img/clorofila-2023.jpg" alt="Clorofila flyer, Espacio Exó" loading="lazy" width="700" height="813"><figcaption class="cap">Clorofila, Espacio Exó / San José / 2023</figcaption></figure>
+          <figure class="card"><img src="img/nwla-2018.jpg" alt="NWLA Nueva Rara Latinoamérica flyer with Raido" loading="lazy" width="700" height="776"><figcaption class="cap">Nueva Rara Latinoamérica / Mexico City / 2018</figcaption></figure>
+          <figure class="card"><img src="img/nrmal-2015.jpg" alt="Festival NRMAL Costa Rica 2015 lineup poster" loading="lazy" width="700" height="876"><figcaption class="cap">Festival NRMAL Costa Rica / San José / 2015</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="sec theme-ohm" id="ohm" aria-labelledby="ohm-h">
+        <div class="sh">
+          <h2 id="ohm-h">OHM</h2>
+          <ul class="roles"><li>Co-founder and art director</li><li>Resident DJ at Relay</li><li>2025 to now</li></ul>
+        </div>
+        <div class="ohm">
+          <div class="ohm-main">
+            <img class="ohm-logo" src="img/ohm-logo.png" alt="OHM logo: a rounded A with a multicolored orb above the OHM wordmark" width="360" height="360">
+            <dl class="facts">
+              <dt>Role</dt><dd>Art direction, brand identity, event key art, motion, merch, venue design</dd>
+              <dt>Reach</dt><dd>65,000+ reach and 2,000+ interactions on a new Instagram account</dd>
+              <dt>Venue</dt><dd>120-capacity community arts venue in Troy, opened October 2026</dd>
+              <dt>Press</dt><dd><a href="#press">Metroland Now, Nonprofit Spotlight, November 2026</a></dd>
+              <dt>Tools</dt><dd>Blender, After Effects, and R-SIGNAL, an audio-reactive tool he built in openFrameworks</dd>
+            </dl>
+            <div class="prose">
+              <p>Renzi is co-founder and art director of OHM. He leads all of its visual work: the brand identity, flyers and key art for every event, social campaigns, 3D motion promos, merch and a print brochure. He also designed the space for OHM's 120-capacity venue in Troy, which opened in October 2026, and plays as a resident DJ at Relay, its techno and breaks night.</p>
+              <p>OHM is a grassroots nonprofit for electronic music and digital arts in New York's Capital Region. Beyond its club nights, it runs a documentary screening series on electronic music history at Alias Coffee in Albany, launched with a free outdoor event that showcased local DJs, producers, VJs and lighting artists, and holds community days like the Earth to OHM park cleanup.</p>
+              <p>Outside OHM, he designs every Raido cover and flyer and builds real-time 3D audio visualizers for live techno events with C++, openFrameworks and GLSL. Brand, product and 3D work for other clients is on the design portfolio.</p>
+            </div>
+            <div class="cb-row">
+              <a class="cb" href="https://designbyraido.com/archive/ohm" target="_blank" rel="noopener"><span>[ View OHM project ]</span></a>
+              <a class="cb" href="https://ohm518.com" target="_blank" rel="noopener"><span>[ ohm518.com ]</span></a>
+            </div>
+          </div>
+          <div class="ohm-grid">
+            <figure class="card"><img src="img/ohm-relay-001.jpg" alt="OHM Relay #001 Halloween flyer in red and black" loading="lazy" width="900" height="1125"><figcaption class="cap">Relay #001 / Oct 2026</figcaption></figure>
+            <figure class="card"><img src="img/ohm-sobolik-2026.jpg" alt="OHM event #007 flyer for Sobolik with DRC and Raido, in blue" loading="lazy" width="800" height="1035"><figcaption class="cap">OHM #007, Sobolik / Jun 2026</figcaption></figure>
+            <figure class="card"><img src="img/ohm-opening-2026.jpg" alt="The [OHM]pening venue launch flyer in blue with an aerial city collage" loading="lazy" width="800" height="1000"><figcaption class="cap">The [OHM]pening, venue launch / Oct 2026</figcaption></figure>
+            <figure class="card"><video src="video/ohm-2025.mp4" poster="img/ohm-launch-poster.jpg" controls playsinline preload="none" width="720" height="900" aria-label="Animated OHM launch fundraiser flyer, with sound"></video><figcaption class="cap">Launch fundraiser, animated flyer / Sep 2025</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="press" aria-labelledby="press-h">
+        <div class="sh">
+          <h2 id="press-h">Press</h2>
+          <ul class="roles"><li>Feature and archive</li><li>2014 to 2026</li></ul>
+        </div>
+        <div class="feature">
+          <figure class="card">
+            <img src="img/metroland-2026.jpg" alt="Metroland Now, November 2026, page 46: the Nonprofit Spotlight on OHM, printed and propped on a turntable" loading="lazy" width="800" height="912">
+            <figcaption class="cap">Metroland Now / Nov 2026 / pp. 46-47</figcaption>
+          </figure>
+          <div class="feature-text">
+            <h3>Nonprofit Spotlight: OHM serves to reawaken local electronic scene</h3>
+            <p class="by">By Natalie St. Denis / photos by Alison Bachorik</p>
+            <div class="prose"><p>A two-page profile of OHM and its new home at 50 4th Street in Troy. Renzi is quoted as OHM's art director and graphic designer.</p></div>
+            <blockquote class="pull">
+              <p>"You can always tell that there are people behind it all."</p>
+              <cite>Giancarlo Renzi, in Metroland Now</cite>
+            </blockquote>
+          </div>
+        </div>
+        <p class="sub-h">Archive / 2014 to 2017</p>
+        <div class="quotes">
+          <blockquote>
+            <p>"Glistening synths with beats that invite you to dance the night away."</p>
+            <cite>Remezcla, on Jera (2015)</cite>
+          </blockquote>
+          <blockquote>
+            <p>"A superb comeback for Raido, and a very rewarding listen."</p>
+            <cite>Remezcla, on Aware Pt. 1 (2015)</cite>
+          </blockquote>
+          <blockquote>
+            <p lang="es">"Coquetea impúdicamente con diferentes derivaciones del hip hop."</p>
+            <span class="tr">Flirts shamelessly with different branches of hip hop.</span>
+            <cite>NWLA, on Meant to Be (2014)</cite>
+          </blockquote>
+        </div>
+        <ul class="coverage">
+          <li><span class="y">2017</span><span>beehype, feature on Automatic EP 3</span></li>
+          <li><span class="y">2015</span><span>Remezcla, Raido added to the Festival Ceremonia lineup</span></li>
+          <li><span class="y">2014</span><span>Remezcla, <a href="https://remezcla.com/music/free-download-raido-meant-to-be-ep/" target="_blank" rel="noopener">free download of the Meant to Be EP</a></span></li>
+          <li><span class="y">2014</span><span>Remezcla, <a href="https://remezcla.com/music/nwla-remezcla-and-finesse-records-announce-antes-del-antes-launch-party-feat-raido/" target="_blank" rel="noopener">Antes del Antes launch party announcement</a></span></li>
+        </ul>
+      </section>
+
+      <section class="sec" id="contact" aria-labelledby="contact-h">
+        <div class="sh">
+          <h2 id="contact-h">Booking and press</h2>
+          <ul class="roles"><li>Replies in English or Spanish</li></ul>
+        </div>
+        <div class="email-row">
+          <span class="email" id="email-addr">raidosounds@gmail.com</span>
+          <button class="cb" type="button" id="copy-email" data-copy="email-addr"><span>[ Copy email ]</span></button>
+        </div>
+        <div class="kit">
+          <span class="k">Press kit</span>
+          <a class="cb" href="https://drive.google.com/drive/folders/1r9va9NZ-mycazU9ROEPh4hEUVdRExPaq" target="_blank" rel="noopener"><span>[ Photos, logos, covers, bios ]</span></a>
+          <a class="cb" href="https://drive.google.com/file/d/1gBwbIyYWO9ZnxkpEisWZ0943QOIpsGvX/view" target="_blank" rel="noopener"><span>[ 2-page PDF ]</span></a>
+        </div>
+        <div class="net-grid">
+          <div><span class="k">Bandcamp</span><a href="https://raidosounds.bandcamp.com" target="_blank" rel="noopener">raidosounds.bandcamp.com</a></div>
+          <div><span class="k">Subvert</span><a href="https://subvert.fm/raido" target="_blank" rel="noopener">subvert.fm/raido</a></div>
+          <div><span class="k">Resident Advisor</span><a href="https://ra.co/dj/raido" target="_blank" rel="noopener">ra.co/dj/raido</a></div>
+          <div><span class="k">Instagram</span><a href="https://instagram.com/raidosounds" target="_blank" rel="noopener">@raidosounds</a></div>
+          <div><span class="k">Design portfolio</span><a href="https://designbyraido.com" target="_blank" rel="noopener">designbyraido.com</a></div>
+          <div><span class="k">OHM</span><a href="https://ohm518.com" target="_blank" rel="noopener">ohm518.com</a></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-left"><svg aria-hidden="true" focusable="false"><use href="#r-mark"/></svg><p>Photos, logos, covers and bios in the <a href="https://drive.google.com/drive/folders/1r9va9NZ-mycazU9ROEPh4hEUVdRExPaq" target="_blank" rel="noopener">press kit folder</a>. Stage visuals on request.</p></div>
+    <p>Updated November 2026</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  function selectText(el) {
+    try {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    } catch (e) {}
+  }
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var face = btn.querySelector("span") || btn;
+    var label = face.textContent;
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-copy"));
+      if (!el) return;
+      var text = el.innerText.trim();
+      var done = function (msg) {
+        face.textContent = msg; btn.classList.add("done");
+        setTimeout(function () { face.textContent = label; btn.classList.remove("done"); }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done("[ Copied ]"); }, function () { selectText(el); done("[ Selected, press Ctrl+C ]"); });
+      } else { selectText(el); done("[ Selected, press Ctrl+C ]"); }
+    });
+  });
+})();
+/* Wordmark: size the R to the cap height of the letters, so both read as one height. */
+(function () {
+  var wm = document.querySelector(".wordmark");
+  if (!wm) return;
+  var span = wm.querySelector("span");
+  function fit() {
+    var cs = getComputedStyle(span);
+    var font = cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+    var go = function () {
+      try {
+        var ctx = document.createElement("canvas").getContext("2d");
+        ctx.font = font;
+        var cap = ctx.measureText("H").actualBoundingBoxAscent;
+        if (cap > 0) wm.style.setProperty("--wm-cap", cap + "px");
+      } catch (e) {}
+    };
+    if (document.fonts && document.fonts.load) document.fonts.load(font, "RAIDO").then(go, go); else go();
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  var lastW = 0;
+  if (window.ResizeObserver) new ResizeObserver(function () { var w = wm.offsetWidth; if (Math.abs(w - lastW) > 2) { lastW = w; fit(); } }).observe(document.documentElement);
+  else window.addEventListener("resize", fit);
+})();
+
+/* Landscape: green ridgelines and a striped sphere, as on designbyraido.com.
+   Still until the pointer moves, then ripples and settles again over a few seconds. */
+(function () {
+  var list = Array.prototype.slice.call(document.querySelectorAll("canvas.scan"));
+  if (!list.length) return;
+  var G = "#42ea96", R = "#FF3333", V = "#090A0C";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lastMove = -1e9, last = 0, inst = [];
+
+  function hash(x, y) { var s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+  function noise(x, y) {
+    var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    var u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    var a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y) { return noise(x, y) * .55 + noise(x * 2.03, y * 2.03) * .3 + noise(x * 4.1, y * 4.1) * .15; }
+
+  function sphere(o, cx, cy, r) {
+    var ctx = o.ctx, rr = r * (1 + .05 * o.act * Math.sin(o.t * 11));
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx, cy, rr, 0, Math.PI * 2); ctx.fillStyle = V; ctx.fill(); ctx.clip();
+    ctx.fillStyle = G;
+    var bands = 13, phase = (o.t * .35) % 1;
+    for (var k = -1; k < bands; k++) {
+      var p1 = ((k + phase) / bands) * Math.PI - Math.PI / 2;
+      var p2 = p1 + (Math.PI / bands) * .5;
+      var y1 = cy + rr * Math.sin(Math.max(-Math.PI / 2, p1));
+      var y2 = cy + rr * Math.sin(Math.min(Math.PI / 2, p2));
+      var wob = o.act * Math.sin(o.t * 7 + k) * rr * .06;
+      if (y2 > y1) ctx.fillRect(cx - rr + wob, y1, rr * 2, y2 - y1);
+    }
+    ctx.restore();
+    ctx.beginPath(); ctx.arc(cx, cy, rr, 0, Math.PI * 2);
+    ctx.strokeStyle = G; ctx.lineWidth = 1; ctx.stroke();
+  }
+
+  function draw(o) {
+    var ctx = o.ctx, W = o.W, H = o.H, pts = o.pts;
+    if (W < 4 || H < 4) return;
+    ctx.fillStyle = V; ctx.fillRect(0, 0, W, H);
+    var rows = Math.min(30, Math.max(16, Math.round(H / 18)));
+    var top = H * .24, gap = (H * .82) / rows;
+    var step = Math.max(4, W / 170);
+    var cx = W * o.sx, sRow = Math.floor(rows * .38);
+    var r = Math.min(W * o.rw, H * o.rh);
+    for (var i = 0; i < rows; i++) {
+      var depth = i / (rows - 1);
+      var base = top + i * gap;
+      var amp = gap * (4 + 10 * depth);
+      pts.length = 0;
+      for (var x = 0; x <= W + step; x += step) {
+        var nx = x / W;
+        var env = .3 + .7 * Math.pow(Math.sin(Math.PI * Math.min(1, Math.max(0, nx))), 1.4);
+        var n = fbm(nx * 3.2 + i * .05, i * .21 + o.t * .6);
+        var hgt = Math.pow(n, 2.2) * amp * env * 2.1;
+        var dx = (x - cx) / W, dy = (depth - .4) * .9, dist = Math.sqrt(dx * dx + dy * dy);
+        hgt += Math.sin(dist * 46 - o.t * 9) * o.act * gap * 1.6 * Math.max(0, 1 - dist * 1.5);
+        var near = Math.max(0, 1 - Math.abs(dx) * 6) * Math.max(0, 1 - Math.abs(depth - .4) * 4);
+        hgt *= 1 - near * .7;
+        pts.push(x, base - hgt);
+      }
+      ctx.beginPath();
+      ctx.moveTo(0, H);
+      for (var j = 0; j < pts.length; j += 2) ctx.lineTo(pts[j], pts[j + 1]);
+      ctx.lineTo(W, H); ctx.closePath();
+      ctx.fillStyle = V; ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(pts[0], pts[1]);
+      for (var k = 2; k < pts.length; k += 2) ctx.lineTo(pts[k], pts[k + 1]);
+      ctx.globalAlpha = .25 + .75 * depth;
+      ctx.strokeStyle = G; ctx.lineWidth = 1; ctx.stroke();
+      ctx.globalAlpha = 1;
+      if (i === sRow) sphere(o, cx, base - r * .95, r);
+    }
+    for (var q = 0; q < o.lasers.length; q++) {
+      var L = o.lasers[q], tail = Math.min(W * .28, 160);
+      var grad = ctx.createLinearGradient(L.x - tail * L.dir, 0, L.x, 0);
+      grad.addColorStop(0, "rgba(255,51,51,0)"); grad.addColorStop(1, R);
+      ctx.strokeStyle = grad; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(L.x - tail * L.dir, L.y); ctx.lineTo(L.x, L.y); ctx.stroke();
+    }
+    o.dirty = false;
+  }
+
+  list.forEach(function (cv) {
+    var ctx = cv.getContext && cv.getContext("2d");
+    if (!ctx) return;
+    var o = {
+      cv: cv, ctx: ctx, W: 1, H: 1, act: 0, t: 0, visible: !window.IntersectionObserver, dirty: true, lasers: [], pts: [],
+      sx: parseFloat(cv.getAttribute("data-sx")) || .79,
+      rw: parseFloat(cv.getAttribute("data-rw")) || .1,
+      rh: parseFloat(cv.getAttribute("data-rh")) || .19
+    };
+    o.size = function () {
+      var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+      o.W = Math.max(1, r.width); o.H = Math.max(1, r.height);
+      cv.width = Math.round(o.W * dpr); cv.height = Math.round(o.H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      o.dirty = true;
+    };
+    o.size(); draw(o);
+    if (window.ResizeObserver) new ResizeObserver(function () { o.size(); draw(o); }).observe(cv);
+    if (window.IntersectionObserver) new IntersectionObserver(function (e) { o.visible = e[0].isIntersecting; }).observe(cv);
+    inst.push(o);
+  });
+  if (!window.ResizeObserver) window.addEventListener("resize", function () { inst.forEach(function (o) { o.size(); draw(o); }); });
+  if (reduce) return;
+
+  function loop(now) {
+    requestAnimationFrame(loop);
+    var dt = Math.min(.05, (now - last) / 1000 || .016); last = now;
+    var target = (now - lastMove < 140) ? 1 : 0;
+    inst.forEach(function (o) {
+      if (!o.visible) return;
+      o.act += (target - o.act) * .03;
+      if (o.act < .001) o.act = 0;
+      o.t += dt * o.act;
+      if (Math.random() < (.003 + o.act * .025)) {
+        var dir = Math.random() < .5 ? 1 : -1;
+        o.lasers.push({ y: o.H * (.3 + Math.random() * .4), x: dir > 0 ? 0 : o.W, dir: dir, v: o.W * (.6 + Math.random() * .6) });
+      }
+      for (var i = o.lasers.length - 1; i >= 0; i--) {
+        var L = o.lasers[i]; L.x += L.v * dt * L.dir;
+        if (L.x > o.W + 200 || L.x < -200) o.lasers.splice(i, 1);
+      }
+      if (o.act > 0 || o.lasers.length || o.dirty) draw(o);
+    });
+  }
+  var wake = function () { lastMove = performance.now(); };
+  window.addEventListener("pointermove", wake, { passive: true });
+  window.addEventListener("touchstart", wake, { passive: true });
+  window.addEventListener("touchmove", wake, { passive: true });
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

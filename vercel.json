@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/epk",
+      "destination": "/epk/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
